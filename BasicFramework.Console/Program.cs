@@ -1,6 +1,9 @@
 ﻿using BasicFramework.Common.Expand;
+using BasicFramework.Common.Helper;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.IO;
 
 namespace BasicFramework.Console
 {
@@ -8,20 +11,30 @@ namespace BasicFramework.Console
     {
         static void Main(string[] args)
         {
-            List<UserInfo> list = new List<UserInfo>
+            string path= Directory.GetCurrentDirectory() + "\\File\\UserInfo.xlsx";
+            string fileExt = Path.GetExtension(path).ToLower();
+            if ( File.Exists(path))
             {
-                new UserInfo{ UserName="admin",Age=22},
-                new UserInfo { UserName="saber",Age=20}
-            };
-            var table= list.ToDataTable();
-            System.Console.WriteLine("hello");
+                Stream stream = File.OpenRead(path);
+                var table= ExcelHelper.ImportExcel(stream,fileExt,0);
+            }
         }
 
+        /// <summary>
+        /// 用户信息
+        /// </summary>
         public class UserInfo
         {
-           
+            /// <summary>
+            /// 用户名
+            /// </summary>
+            [Description("用户名")]
             public string UserName { get; set; }
 
+            /// <summary>
+            /// 年龄
+            /// </summary>
+            [Description("年龄")]
             public int Age { get; set; }
         }
     }

@@ -9,4 +9,10 @@
     <ProjectReference Include="..\BasicFramework.Common\BasicFramework.Common.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="File\UserInfo.xlsx">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>
