@@ -1,4 +1,4 @@
-﻿namespace BasicFramework.Common.Expand
+﻿namespace BasicFramework.Common.Expands
 {
     /// <summary>
     /// 参数验证拓展

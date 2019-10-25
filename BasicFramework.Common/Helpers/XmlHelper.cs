@@ -1,11 +1,11 @@
-﻿using BasicFramework.Common.Dto;
+﻿using BasicFramework.Common.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
 
-namespace BasicFramework.Common.Helper
+namespace BasicFramework.Common.Helpers
 {
     /// <summary>
     /// xml工具类

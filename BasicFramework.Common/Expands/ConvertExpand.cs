@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using Newtonsoft.Json;
 
-namespace BasicFramework.Common.Expand
+namespace BasicFramework.Common.Expands
 {
     /// <summary>
     /// 类型转换拓展

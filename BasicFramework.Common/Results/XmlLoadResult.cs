@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace BasicFramework.Common.Dto
+namespace BasicFramework.Common.Results
 {
     /// <summary>
     /// xml读取通用dto

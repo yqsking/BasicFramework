@@ -4,15 +4,10 @@ using NPOI.SS.UserModel;
 using NPOI.XSSF.UserModel;
 using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BasicFramework.Common.Helper
+namespace BasicFramework.Common.Helpers
 {
     /// <summary>
     /// excel工具类

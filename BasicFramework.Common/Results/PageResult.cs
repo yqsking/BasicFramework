@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 
-namespace BasicFramework.Common.Dto
+namespace BasicFramework.Common.Results
 {
     /// <summary>
     /// 通用分页查询返回结果

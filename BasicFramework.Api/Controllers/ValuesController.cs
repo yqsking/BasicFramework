@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using BasicFramework.Common.Attributes;
 
 namespace BasicFramework.Api.Controllers
 {
@@ -18,6 +16,7 @@ namespace BasicFramework.Api.Controllers
         }
 
         // GET api/values/5
+        [Anonymous]
         [HttpGet("{id}")]
         public ActionResult<string> Get(int id)
         {

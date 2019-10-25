@@ -1,5 +1,5 @@
-﻿using BasicFramework.Common.Expand;
-using BasicFramework.Common.Helper;
+﻿using BasicFramework.Common.Expands;
+using BasicFramework.Common.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
