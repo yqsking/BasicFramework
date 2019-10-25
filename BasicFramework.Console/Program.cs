@@ -11,13 +11,14 @@ namespace BasicFramework.Console
     {
         static void Main(string[] args)
         {
-            string path= Directory.GetCurrentDirectory() + "\\File\\UserInfo.xlsx";
-            string fileExt = Path.GetExtension(path).ToLower();
-            if ( File.Exists(path))
-            {
-                Stream stream = File.OpenRead(path);
-                var table= ExcelHelper.ImportExcel(stream,fileExt,0);
-            }
+            System.Console.WriteLine(Guid.NewGuid().ToString("N").ToUpper());
+            //string path= Directory.GetCurrentDirectory() + "\\File\\UserInfo.xlsx";
+            //string fileExt = Path.GetExtension(path).ToLower();
+            //if ( File.Exists(path))
+            //{
+            //    Stream stream = File.OpenRead(path);
+            //    var table= ExcelHelper.ImportExcel(stream,fileExt,0);
+            //}
         }
 
         /// <summary>
