@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
+using System.Linq;
 
 namespace BasicFramework.Console
 {
@@ -11,14 +12,13 @@ namespace BasicFramework.Console
     {
         static void Main(string[] args)
         {
-            System.Console.WriteLine(Guid.NewGuid().ToString("N").ToUpper());
-            //string path= Directory.GetCurrentDirectory() + "\\File\\UserInfo.xlsx";
-            //string fileExt = Path.GetExtension(path).ToLower();
-            //if ( File.Exists(path))
-            //{
-            //    Stream stream = File.OpenRead(path);
-            //    var table= ExcelHelper.ImportExcel(stream,fileExt,0);
-            //}
+            List<UserInfo> list = new List<UserInfo>()
+            {
+                new UserInfo { UserName="saber",Age=18},new UserInfo { UserName="archar",Age=20},new UserInfo { UserName="张三",Age=20}
+            };
+            //Func<UserInfo, dynamic> key = item => new {item.Age };
+            //var temp= list.GroupBy(key).ToList();
+            Tuple<List<UserInfo>, int, int> tuple = new Tuple<List<UserInfo>, int, int>(list,list.Count(),1);
         }
 
         /// <summary>

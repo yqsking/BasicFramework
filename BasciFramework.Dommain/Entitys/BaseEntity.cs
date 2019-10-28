@@ -7,7 +7,7 @@ namespace BasciFramework.Dommain.Entitys
     /// 领域模型基类
     /// </summary>
     [Serializable]
-    public  class BaseEntity
+    public class BaseEntity
     {
         /// <summary>
         /// 唯一id

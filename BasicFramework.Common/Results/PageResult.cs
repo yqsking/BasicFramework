@@ -6,7 +6,7 @@ namespace BasicFramework.Common.Results
     /// 通用分页查询返回结果
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public  class PageResult<T> :ApiResult where T:new ()
+    public  class PageResult<T> :ApiResult
     {
         /// <summary>
         /// 当前页码
