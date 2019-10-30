@@ -36,11 +36,9 @@ namespace BasciFramework.Dommain.Repositorys
         /// <summary>
         /// 根据条件查询单个实体模型
         /// </summary>
-        /// <param name="conditionExpression">条件表达式</param>
-        /// <param name="groupbyExpression">排序表达式</param>
-        /// <param name="isDesc">是否倒序(默认创建时间)</param>
+        /// <param name="expression">条件表达式</param>
         /// <returns>实体</returns>
-        Task<TEntity> GetEntityAsync(Expression<Func<TEntity, bool>> conditionExpression, Expression<Func<TEntity,dynamic>> groupbyExpression=null,bool isDesc=true);
+        Task<TEntity> GetEntityAsync(Expression<Func<TEntity, bool>> expression);
 
         /// <summary>
         /// 根据条件查询所有实体模型

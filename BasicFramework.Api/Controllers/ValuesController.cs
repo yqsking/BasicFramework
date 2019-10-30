@@ -18,6 +18,7 @@ namespace BasicFramework.Api.Controllers
         // GET api/values/5
         [Anonymous]
         [HttpGet("{id}")]
+        [ValidateAntiForgeryToken]
         public ActionResult<string> Get(int id)
         {
             return "value";

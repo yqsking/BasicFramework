@@ -3,8 +3,12 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BasciFramework.Impl.DBContext
 {
+    /// <summary>
+    /// 数据库上下文对象
+    /// </summary>
     public  class TaoBaoCustomerDBContext:DbContext
     {
+     
         public TaoBaoCustomerDBContext(DbContextOptions<TaoBaoCustomerDBContext> dbContextOptions) :base(dbContextOptions)
         {
 
