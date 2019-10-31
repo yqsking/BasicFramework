@@ -1,15 +1,15 @@
-﻿using BasciFramework.Dommain.Entitys.User;
+﻿using BasicFramework.Dommain.Entitys.User;
 using Microsoft.EntityFrameworkCore;
 
-namespace BasciFramework.Impl.DBContext
+namespace BasicFramework.Impl.DBContext
 {
     /// <summary>
     /// 数据库上下文对象
     /// </summary>
-    public  class TaoBaoCustomerDBContext:DbContext
+    public  class BasicFrameworkDbContext:DbContext
     {
      
-        public TaoBaoCustomerDBContext(DbContextOptions<TaoBaoCustomerDBContext> dbContextOptions) :base(dbContextOptions)
+        public BasicFrameworkDbContext(DbContextOptions<BasicFrameworkDbContext> dbContextOptions) :base(dbContextOptions)
         {
 
         }

@@ -1,5 +1,5 @@
-﻿using BasciFramework.Dommain.Entitys;
-using BasciFramework.Dommain.Repositorys;
+﻿using BasicFramework.Dommain.Entitys;
+using BasicFramework.Dommain.Repositorys;
 using BasicFramework.Dommain.Common.Results;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -8,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace BasciFramework.Impl.Repositorys
+namespace BasicFramework.Impl.Repositorys
 {
 
     /// <summary>

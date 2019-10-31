@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BasciFramework.Dommain.Entitys.User
+namespace BasicFramework.Dommain.Entitys.User
 {
     /// <summary>
     /// 用户基础信息

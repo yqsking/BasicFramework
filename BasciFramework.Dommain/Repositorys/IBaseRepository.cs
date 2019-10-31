@@ -1,7 +1,7 @@
-﻿using BasciFramework.Dommain.Entitys;
+﻿using BasicFramework.Dommain.Entitys;
 using System.Threading.Tasks;
 
-namespace BasciFramework.Dommain.Repositorys
+namespace BasicFramework.Dommain.Repositorys
 {
     /// <summary>
     /// 基础仓储接口

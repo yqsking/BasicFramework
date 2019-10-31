@@ -1,11 +1,11 @@
-﻿using BasciFramework.Dommain.Entitys;
+﻿using BasicFramework.Dommain.Entitys;
 using BasicFramework.Dommain.Common.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace BasciFramework.Dommain.Repositorys
+namespace BasicFramework.Dommain.Repositorys
 {
     /// <summary>
     /// 基础只读仓储接口

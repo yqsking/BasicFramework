@@ -5,11 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\BasciFramework.Dommain\BasciFramework.Dommain.csproj" />
+    <ProjectReference Include="..\BasciFramework.Dommain\BasicFramework.Dommain.csproj" />
     <ProjectReference Include="..\BasicFramework.Common\BasicFramework.Common.csproj" />
   </ItemGroup>
 

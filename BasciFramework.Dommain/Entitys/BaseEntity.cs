@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace BasciFramework.Dommain.Entitys
+namespace BasicFramework.Dommain.Entitys
 {
     /// <summary>
     /// 实体模型基类

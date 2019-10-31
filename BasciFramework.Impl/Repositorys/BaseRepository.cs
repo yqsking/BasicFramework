@@ -1,11 +1,11 @@
-﻿using BasciFramework.Dommain.Entitys;
-using BasciFramework.Dommain.Repositorys;
+﻿using BasicFramework.Dommain.Entitys;
+using BasicFramework.Dommain.Repositorys;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace BasciFramework.Impl.Repositorys
+namespace BasicFramework.Impl.Repositorys
 {
     /// <summary>
     /// 基础仓储实现

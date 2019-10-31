@@ -15,17 +15,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2BasicFramework.Appliction"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicFramework.Appliction", "BasicFramework.Appliction\BasicFramework.Appliction.csproj", "{4D3F0A5F-106D-4A8A-95BF-4CA766DF7AB8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3BasciFramework.Dommain", "3BasciFramework.Dommain", "{B218BD70-F861-46BE-8B69-506204FB6471}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3BasicFramework.Dommain", "3BasicFramework.Dommain", "{B218BD70-F861-46BE-8B69-506204FB6471}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasciFramework.Dommain", "BasciFramework.Dommain\BasciFramework.Dommain.csproj", "{053617E8-D4AF-491B-97FB-33AAC0F5E849}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicFramework.Dommain", "BasciFramework.Dommain\BasicFramework.Dommain.csproj", "{053617E8-D4AF-491B-97FB-33AAC0F5E849}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5BasciFramework.Common", "5BasciFramework.Common", "{C51C427B-24A8-4EB2-8C1F-46A1AE6F0325}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5BasicFramework.Common", "5BasicFramework.Common", "{C51C427B-24A8-4EB2-8C1F-46A1AE6F0325}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicFramework.Common", "BasicFramework.Common\BasicFramework.Common.csproj", "{0579AB49-E0A5-49FE-9D3E-D66266B4CBD8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4BasciFramework.Impl", "4BasciFramework.Impl", "{BC5DA11E-47BE-446F-95AF-3498169EF18D}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4BasicFramework.Impl", "4BasicFramework.Impl", "{BC5DA11E-47BE-446F-95AF-3498169EF18D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasciFramework.Impl", "BasciFramework.Impl\BasciFramework.Impl.csproj", "{8F209C04-2850-4FC6-9D84-2643DCE9A278}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BasicFramework.Impl", "BasciFramework.Impl\BasicFramework.Impl.csproj", "{8F209C04-2850-4FC6-9D84-2643DCE9A278}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

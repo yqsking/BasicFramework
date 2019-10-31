@@ -1,4 +1,4 @@
-﻿using BasciFramework.Dommain.Entitys;
+﻿using BasicFramework.Dommain.Entitys;
 using System.Collections.Generic;
 
 namespace BasicFramework.Dommain.Common.Results
