@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BasciFramework.Dommain\BasciFramework.Dommain.csproj" />
+    <ProjectReference Include="..\BasicFramework.Common\BasicFramework.Common.csproj" />
   </ItemGroup>
 
 </Project>

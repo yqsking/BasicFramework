@@ -20,7 +20,7 @@ namespace BasicFramework.Common.Expands
         /// <returns></returns>
         public static T ToModel<T>(this string str) where T:new()
         {
-            if(str.IsNull())
+            if(string.IsNullOrWhiteSpace(str))
             {
                 throw new Exception("当前字符串值为空");
             }

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace BasicFramework.Common.Results
+namespace BasicFramework.Appliction.ViewModels
 {
     /// <summary>
     /// 通用分页查询返回结果
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public  class PageResult<T> :ApiResult
+    /// <typeparam name="ResponseDto"></typeparam>
+    public class PageResult<ResponseDto> :ApiResult where ResponseDto:BaseResponseDto
     {
         /// <summary>
         /// 当前页码
@@ -27,6 +27,6 @@ namespace BasicFramework.Common.Results
         /// <summary>
         /// 查询数据
         /// </summary>
-        public IList<T> Data { get; set; }
+        public List<ResponseDto> Data { get; set; }
     }
 }

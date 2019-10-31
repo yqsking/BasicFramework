@@ -1,4 +1,4 @@
-﻿namespace BasicFramework.Common.Results
+﻿namespace BasicFramework.Dommain.Common.Results
 {
     /// <summary>
     /// 通用api请求结果

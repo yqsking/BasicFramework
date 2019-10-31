@@ -1,6 +1,6 @@
 ﻿using BasciFramework.Dommain.Entitys;
 using BasciFramework.Dommain.Repositorys;
-using BasicFramework.Common.Results;
+using BasicFramework.Dommain.Common.Results;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -72,15 +72,41 @@ namespace BasciFramework.Impl.Repositorys
             return await _dbContext.Set<TEntity>().FirstOrDefaultAsync(expression);
         }
 
-        public Task<IList<TEntity>> GetEntityAllListAsync(Expression<Func<TEntity, bool>> conditionExpression, Expression<Func<TEntity, dynamic>> groupbyExpression, bool isDesc = true)
+        /// <summary>
+        /// 根据条件查询所有实体模型
+        /// </summary>
+        /// <param name="conditionExpression">条件表达式</param>
+        /// <param name="orderByExpression">排序表达式</param>
+        /// <param name="isDesc">是否降序</param>
+        /// <returns></returns>
+        public async  Task<IList<TEntity>> GetEntityAllListAsync(Expression<Func<TEntity, bool>> conditionExpression, Expression<Func<TEntity, dynamic>> orderByExpression, bool isDesc = true)
         {
-            throw new NotImplementedException();
+            var list=await  _dbContext.Set<TEntity>().WhereIf(conditionExpression!=null,conditionExpression).OrderBy(orderByExpression,isDesc).ToListAsync();
+            return list;
         }
 
-
-        public Task<PageResult<TEntity>> GetEntityPageList(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> conditionExpression = null, Expression<Func<TEntity, dynamic>> groupbyExpression = null, bool isDesc = true)
+        /// <summary>
+        /// 根据条件分页查询实体模型
+        /// </summary>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <param name="conditionExpression"></param>
+        /// <param name="orderByExpression"></param>
+        /// <param name="isDesc"></param>
+        /// <returns></returns>
+        public async  Task<PageResult<TEntity>> GetEntityPageList(int pageIndex, int pageSize, Expression<Func<TEntity, bool>> conditionExpression , Expression<Func<TEntity, dynamic>> orderByExpression , bool isDesc = true)
         {
-            throw new NotImplementedException();
+            var result = new PageResult<TEntity> { PageIndex=pageIndex,PageSize=pageSize,Data=new List<TEntity>()};
+            var query = _dbContext.Set<TEntity>().WhereIf(conditionExpression != null, conditionExpression).OrderBy(orderByExpression, isDesc);
+            int totalNumber =await query.CountAsync();
+            if(totalNumber>0)
+            {
+                result.TotalNumber = totalNumber;
+                result.TotalPageIndex = totalNumber % pageSize == 0 ? totalNumber / pageSize : totalNumber / pageSize + 1;
+                result.Data =await query.ToListAsync();
+            }
+            return result;
+           
         }
     }
 }

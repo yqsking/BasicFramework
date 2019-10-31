@@ -1,5 +1,5 @@
 ﻿using BasciFramework.Dommain.Entitys;
-using BasicFramework.Common.Results;
+using BasicFramework.Dommain.Common.Results;
 using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
@@ -58,7 +58,7 @@ namespace BasciFramework.Dommain.Repositorys
         /// <param name="groupbyExpression">排序表达式</param>
         /// <param name="isDesc">是否倒序(默认创建时间)</param>
         /// <returns></returns>
-        Task<PageResult<TEntity>> GetEntityPageList(int pageIndex,int pageSize,Expression<Func<TEntity,bool>> conditionExpression=null,Expression<Func<TEntity,dynamic>> groupbyExpression=null,bool isDesc=true);
+        Task<PageResult<TEntity>> GetEntityPageList(int pageIndex,int pageSize,Expression<Func<TEntity,bool>> conditionExpression,Expression<Func<TEntity,dynamic>> groupbyExpression,bool isDesc=true);
 
        
 

@@ -10,7 +10,6 @@
     <Folder Include="DommainEventHandlers\" />
     <Folder Include="Queries\" />
     <Folder Include="Handlers\" />
-    <Folder Include="ViewModels\" />
     <Folder Include="DataTransferModels\" />
   </ItemGroup>
 
