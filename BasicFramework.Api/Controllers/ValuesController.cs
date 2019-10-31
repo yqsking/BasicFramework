@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using BasicFramework.Common.Attributes;
 
-namespace BasicFramework.Api.Controllers
+namespace BasicFramework.Presentaion.Api.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

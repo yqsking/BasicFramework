@@ -38,5 +38,19 @@ namespace BasicFramework.Dommain.Entitys.User
         {
             Phone = phone;
         }
+
+        /// <summary>
+        /// 登录密码
+        /// </summary>
+        public string Pwd { get; private set; }
+
+        /// <summary>
+        /// 设置密码
+        /// </summary>
+        /// <param name="pwd"></param>
+        public void SetPwd(string pwd)
+        {
+            Pwd = pwd;
+        }
     }
 }
