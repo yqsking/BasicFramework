@@ -6,7 +6,7 @@ namespace BasicFramework.Dommain.Repositorys
     /// <summary>
     /// 基础仓储接口
     /// </summary>
-    public interface IBaseRepository<TEntity> where TEntity:BaseEntity
+    public interface IBaseRepository<TEntity> :IReadOnlyBaseRepository<TEntity> where TEntity:BaseEntity
     {
         /// <summary>
         /// 添加一个或者多个实体模型

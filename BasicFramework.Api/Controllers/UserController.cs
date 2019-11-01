@@ -2,45 +2,59 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BasicFramework.Appliction.Commands.User;
+using BasicFramework.Appliction.Queries;
+using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BasicFramework.Presentaion.Api.Controllers
 {
+    /// <summary>
+    /// 用户模块
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
-        // GET: api/User
+        private readonly IUserQueries _userQueries;
+        private readonly IMediator _mediator;
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="mediator"></param>
+        /// <param name="userQueries"></param>
+        public UserController(IMediator mediator,IUserQueries userQueries)
+        {
+            _mediator = mediator;
+            _userQueries = userQueries;
+        }
+        
+        /// <summary>
+        /// 根据id获取用户基础信息
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet]
-        public IEnumerable<string> Get()
+        [Route("users/{id}")]
+        public async Task<IActionResult> GetUserById([FromRoute]string id)
         {
-            return new string[] { "value1", "value2" };
+           var result=await  _userQueries.GetUserById(id);
+            return Ok(result);
         }
 
-        // GET: api/User/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/User
+        /// <summary>
+        /// 用户注册
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         [HttpPost]
-        public void Post([FromBody] string value)
+        [Route("users/userRegister")]
+        public async Task<IActionResult> UserRegister([FromBody]UserRegisterCommand command)
         {
-        }
-
-        // PUT: api/User/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
     }
 }

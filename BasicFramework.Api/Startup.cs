@@ -23,6 +23,13 @@ namespace BasicFramework.Presentaion.Api
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             //依赖注入AutoMapper
             services.AddAutoMapper(typeof(UserProfile).Assembly);
+            //配置允许跨域访问 (PS:同时配置 AllowCredentials 和 AllowAnyOrigin 会冲突报错)
+            services.AddCors(options => options.AddPolicy("AllowAll",
+                p => p.AllowAnyOrigin()
+                   .AllowAnyMethod()
+                   .AllowAnyHeader()));
+            services.AddHttpClient();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

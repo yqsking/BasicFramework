@@ -10,6 +10,19 @@ namespace BasicFramework.Dommain.Entitys.User
     public  class UserEntity:BaseEntity
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userName">用户名</param>
+        /// <param name="phone">手机号</param>
+        /// <param name="pwd">密码</param>
+        public UserEntity(string userName,string phone,string pwd)
+        {
+            UserName = userName;
+            Phone = phone;
+            Pwd = pwd;
+        }
+
+        /// <summary>
         /// 用户名
         /// </summary>
         [MaxLength(50)]

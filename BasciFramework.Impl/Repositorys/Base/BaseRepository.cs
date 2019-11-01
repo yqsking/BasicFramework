@@ -11,7 +11,7 @@ namespace BasicFramework.Impl.Repositorys
     /// 基础仓储实现
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
-    public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : BaseEntity
+    public class BaseRepository<TEntity> :ReadOnlyBaseRepository<TEntity>, IBaseRepository<TEntity> where TEntity : BaseEntity
     {
         /// <summary>
         /// 数据库上下文对象
@@ -22,7 +22,7 @@ namespace BasicFramework.Impl.Repositorys
         /// 
         /// </summary>
         /// <param name="dbContext"></param>
-        public BaseRepository(DbContext dbContext)
+        public BaseRepository(DbContext dbContext):base(dbContext)
         {
             _dbContext = dbContext;
         }
