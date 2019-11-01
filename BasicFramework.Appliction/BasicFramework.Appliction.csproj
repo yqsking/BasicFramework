@@ -5,12 +5,21 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Behaviors\" />
-    <Folder Include="Commands\" />
     <Folder Include="DommainEventHandlers\" />
     <Folder Include="Queries\" />
-    <Folder Include="Handlers\" />
     <Folder Include="DataTransferModels\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="MediatR" Version="7.0.0" />
+    <PackageReference Include="Microsoft.AspNet.WebPages" Version="3.2.7" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="3.0.0" />
+    <PackageReference Include="Polly" Version="7.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BasciFramework.Dommain\BasicFramework.Dommain.csproj" />
   </ItemGroup>
 
 </Project>
