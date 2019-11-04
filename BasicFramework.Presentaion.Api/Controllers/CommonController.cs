@@ -25,7 +25,7 @@ namespace BasicFramework.Presentaion.Api.Controllers
         [HttpPost]
         [Route("upload")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(bool))]
-        public async Task<IActionResult> GetUserInfo([FromBody]IFormFile file)
+        public async Task<IActionResult> GetUserInfo(IFormFile file)
         {
            return Ok(await Task.FromResult(true));
           
