@@ -4,6 +4,18 @@
         <name>BasicFramework.Presentaion.Api</name>
     </assembly>
     <members>
+        <member name="T:BasicFramework.Presentaion.Api.Controllers.CommonController">
+            <summary>
+            公共模块
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.Controllers.CommonController.GetUserInfo(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+            上传文件
+            </summary>
+            <param name="file">上传文件</param>
+            <returns></returns>
+        </member>
         <member name="T:BasicFramework.Presentaion.Api.Controllers.UserController">
             <summary>
             用户模块
