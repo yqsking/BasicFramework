@@ -2,6 +2,7 @@ using AutoMapper;
 using BasicFramework.Appliction.AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -39,15 +40,14 @@ namespace BasicFramework.Presentaion.Api
                 options.SerializerSettings.DateFormatString ="yyyy-MM-dd HH:mm:ss";
             });
             //配置允许跨域访问 (PS:同时配置 AllowCredentials 和 AllowAnyOrigin 会冲突报错)
-            services.AddCors(options => options.AddPolicy("AllowAll",
-                p => p.AllowAnyOrigin()
-                   .AllowAnyMethod()
-                   .AllowAnyHeader()));
-
+            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin() .AllowAnyMethod() .AllowAnyHeader()));
             services.AddHttpClient();
 
             //添加AutoMapper的支持
             services.AddAutoMapper(typeof(UserProfile).Assembly);
+
+            ////依赖注入数据库配置
+            //services.AddDbContext<HttpContext>(d => d.UseMySql(Configuration.GetConnectionString("Default")));
 
             //添加swagger
             services.AddSwaggerGen(options =>
