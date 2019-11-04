@@ -15,20 +15,20 @@ namespace BasicFramework.Presentaion.Api.Controllers
     [Route("[controller]")]
     public class UserController : ControllerBase
     {
-        private readonly IMediator _mediator;
-        private readonly IUserQueries _userQueries;
+        //private readonly IMediator _mediator;
+        //private readonly IUserQueries _userQueries;
       
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="mediator"></param>
-        /// <param name="userQueries"></param>
-        public UserController(IMediator mediator,IUserQueries userQueries)
-        {
-            _mediator = mediator;
-            _userQueries = userQueries;
-        }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="mediator"></param>
+        ///// <param name="userQueries"></param>
+        //public UserController(IMediator mediator,IUserQueries userQueries)
+        //{
+        //    _mediator = mediator;
+        //    _userQueries = userQueries;
+        //}
 
         /// <summary>
         /// 获取指定用户信息
@@ -40,8 +40,9 @@ namespace BasicFramework.Presentaion.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(UserResponseDto))]
         public async Task<IActionResult> GetUserInfo([FromQuery]string id)
         {
-           var result=await  _userQueries.GetUserById(id);
-            return Ok(result);
+           //var result=await  _userQueries.GetUserById(id);
+           return Ok(await Task.FromResult(new UserResponseDto { UserName = "saber" }));
+          
         }
     }
 }

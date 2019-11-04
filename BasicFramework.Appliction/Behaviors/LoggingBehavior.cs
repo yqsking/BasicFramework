@@ -12,8 +12,19 @@ namespace BasicFramework.Appliction.Behaviors
     {
         private readonly ILogger<LoggingBehavior<TRequest, TResponse>> _logger;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="logger"></param>
         public LoggingBehavior(ILogger<LoggingBehavior<TRequest, TResponse>> logger) => _logger = logger;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="request"></param>
+        /// <param name="cancellationToken"></param>
+        /// <param name="next"></param>
+        /// <returns></returns>
         public async Task<TResponse> Handle(TRequest request, CancellationToken cancellationToken, RequestHandlerDelegate<TResponse> next)
         {
             _logger.LogInformation($"Handling {typeof(TRequest).Name}");

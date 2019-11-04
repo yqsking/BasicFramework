@@ -18,6 +18,7 @@ namespace BasicFramework.Appliction.Queries.Impl
         /// 
         /// </summary>
         /// <param name="userReadOnlyRepository"></param>
+        /// <param name="mapper"></param>
         public UserQueries(IUserReadOnlyRepository userReadOnlyRepository,IMapper mapper)
         {
             _userReadOnlyRepository = userReadOnlyRepository;

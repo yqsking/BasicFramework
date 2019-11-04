@@ -9,6 +9,9 @@ namespace BasicFramework.Appliction.AutoMapper
     /// </summary>
     public  class UserProfile:Profile
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public UserProfile()
         {
             CreateMap<UserEntity,UserResponseDto>();

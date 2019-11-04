@@ -14,8 +14,8 @@ namespace BasicFramework.Appliction.Queries
         /// <summary>
         /// 根据Id获取用户基础信息
         /// </summary>
-        /// <param name="key"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        Task<UserResponseDto> GetUserById(string Id);
+        Task<UserResponseDto> GetUserById(string id);
     }
 }
