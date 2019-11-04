@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BasicFramework.Presentaion.Api</name>
+    </assembly>
+    <members>
+        <member name="T:BasicFramework.Presentaion.Api.Controllers.UserController">
+            <summary>
+            用户模块
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.Controllers.UserController.GetUserInfo(System.String)">
+            <summary>
+            获取指定用户信息
+            </summary>
+            <param name="id">用户唯一id</param>
+            <returns></returns>
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            依赖注入服务
+            </summary>
+            <param name="services"></param>
+            This method gets called by the runtime. Use this method to add services to the container.
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            配置http请求管道
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        </member>
+    </members>
+</doc>

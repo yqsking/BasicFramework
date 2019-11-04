@@ -5,8 +5,11 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.PlatformAbstractions;
+using Microsoft.OpenApi.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
+using System.IO;
 
 namespace BasicFramework.Presentaion.Api
 {
@@ -46,6 +49,26 @@ namespace BasicFramework.Presentaion.Api
             //添加AutoMapper的支持
             services.AddAutoMapper(typeof(UserProfile).Assembly);
 
+            //添加swagger
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "BasicFramework  API",
+                    Version = "v1"
+                });
+                //options.SchemaFilter<SwaggerExcludeFilter>();
+                //options.OperationFilter<SwaggerFileUploadFilter>();
+
+                var basePath = PlatformServices.Default.Application.ApplicationBasePath;
+                var xmlPathApi = Path.Combine(basePath, "BasicFramework.Presentaion.Api.xml");
+                var xmlPathModel = Path.Combine(basePath, "BasicFramework.Appliction.xml");
+                options.IncludeXmlComments(xmlPathApi);
+                options.IncludeXmlComments(xmlPathModel);
+
+            });
+
+
         }
 
         /// <summary>
@@ -65,6 +88,14 @@ namespace BasicFramework.Presentaion.Api
 
             app.UseAuthorization();
 
+            //启动Swagger
+            app.UseSwagger();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "BasicFramework API V1");
+                c.OAuthClientId("BasicFrameworkSwaggerUI");
+                c.OAuthAppName("BasicFramework Swagger UI");
+            });
             //启动允许跨域访问
             app.UseCors("AllowAll");
             app.UseHttpsRedirection();

@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BasicFramework.Appliction</name>
+    </assembly>
+    <members>
+        <member name="T:BasicFramework.Appliction.AutoMapper.UserProfile">
+            <summary>
+            用户模块dto映射
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Appliction.AutoMapper.UserProfile.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:BasicFramework.Appliction.Behaviors.LoggingBehavior`2">
+            <summary>
+            日志行为
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Appliction.Behaviors.LoggingBehavior`2.#ctor(Microsoft.Extensions.Logging.ILogger{BasicFramework.Appliction.Behaviors.LoggingBehavior{`0,`1}})">
+            <summary>
+            
+            </summary>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BasicFramework.Appliction.Behaviors.LoggingBehavior`2.Handle(`0,System.Threading.CancellationToken,MediatR.RequestHandlerDelegate{`1})">
+            <summary>
+            
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <param name="next"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BasicFramework.Appliction.Commands.User.UserRegisterCommand">
+            <summary>
+            添加用户命令
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.Pwd">
+            <summary>
+            密码
+            </summary>
+        </member>
+        <member name="T:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler">
+            <summary>
+            添加用户命令处理器
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler.#ctor(BasicFramework.Dommain.Repositorys.IUserRepository)">
+            <summary>
+            
+            </summary>
+            <param name="userRepository"></param>
+        </member>
+        <member name="M:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler.Handle(BasicFramework.Appliction.Commands.User.UserRegisterCommand,System.Threading.CancellationToken)">
+            <summary>
+            添加用户
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BasicFramework.Appliction.Queries.Impl.UserQueries">
+            <summary>
+            用户模块查询器
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Appliction.Queries.Impl.UserQueries.#ctor(BasicFramework.Dommain.Repositorys.IUserReadOnlyRepository,AutoMapper.IMapper)">
+            <summary>
+            
+            </summary>
+            <param name="userReadOnlyRepository"></param>
+            <param name="mapper"></param>
+        </member>
+        <member name="M:BasicFramework.Appliction.Queries.Impl.UserQueries.GetUserById(System.String)">
+            <summary>
+            根据Id获取用户基础信息
+            </summary>
+            <param name="Id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BasicFramework.Appliction.Queries.IUserQueries">
+            <summary>
+            用户模块服务
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Appliction.Queries.IUserQueries.GetUserById(System.String)">
+            <summary>
+            根据Id获取用户基础信息
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BasicFramework.Appliction.ViewModels.ApiResult">
+            <summary>
+            通用api请求结果
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.ApiResult.IsSuccess">
+            <summary>
+            请求状态
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.ApiResult.ErrorCode">
+            <summary>
+            错误代码
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.ApiResult.Message">
+            <summary>
+            提示消息
+            </summary>
+        </member>
+        <member name="T:BasicFramework.Appliction.ViewModels.BaseResponseDto">
+            <summary>
+            响应dto基类
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.BaseResponseDto.Id">
+            <summary>
+            唯一id
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.BaseResponseDto.CreateTime">
+            <summary>
+            创建时间
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.BaseResponseDto.CreateTimeString">
+            <summary>
+            创建时间字符串
+            </summary>
+        </member>
+        <member name="T:BasicFramework.Appliction.ViewModels.PageResult`1">
+            <summary>
+            通用分页查询返回结果
+            </summary>
+            <typeparam name="ResponseDto"></typeparam>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.PageResult`1.PageIndex">
+            <summary>
+            当前页码
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.PageResult`1.PageSize">
+            <summary>
+            每页条数
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.PageResult`1.TotalPageIndex">
+            <summary>
+            总页码
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.PageResult`1.TotalNumber">
+            <summary>
+            总条数
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.PageResult`1.Data">
+            <summary>
+            查询数据
+            </summary>
+        </member>
+        <member name="T:BasicFramework.Appliction.ViewModels.User.UserResponseDto">
+            <summary>
+            用户基础信息
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.User.UserResponseDto.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.User.UserResponseDto.Phone">
+            <summary>
+            手机号
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.ViewModels.User.UserResponseDto.Pwd">
+            <summary>
+            登录密码
+            </summary>
+        </member>
+    </members>
+</doc>

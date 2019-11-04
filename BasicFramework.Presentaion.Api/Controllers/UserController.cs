@@ -33,12 +33,12 @@ namespace BasicFramework.Presentaion.Api.Controllers
         /// <summary>
         /// 获取指定用户信息
         /// </summary>
-        /// <param name="id"></param>
+        /// <param name="id">用户唯一id</param>
         /// <returns></returns>
         [HttpGet]
         [Route("users/{id}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(UserResponseDto))]
-        public async Task<IActionResult> GetUserInfo([FromQuery]string id)
+        public async Task<IActionResult> GetUserInfo([FromRoute]string id)
         {
            //var result=await  _userQueries.GetUserById(id);
            return Ok(await Task.FromResult(new UserResponseDto { UserName = "saber" }));
