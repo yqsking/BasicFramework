@@ -1,6 +1,6 @@
 ﻿using BasicFramework.Dommain.Entitys;
 using BasicFramework.Dommain.Repositorys;
-using Microsoft.EntityFrameworkCore;
+using BasicFramework.Dommain.Repositorys.Base;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,18 +13,19 @@ namespace BasicFramework.Impl.Repositorys
     /// <typeparam name="TEntity"></typeparam>
     public class BaseRepository<TEntity> :ReadOnlyBaseRepository<TEntity>, IBaseRepository<TEntity> where TEntity : BaseEntity
     {
+
         /// <summary>
-        /// 数据库上下文对象
+        /// 仓储工作单元
         /// </summary>
-        private readonly DbContext _dbContext;
+        private readonly IUnitOfWork _unitOfWork;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="dbContext"></param>
-        public BaseRepository(DbContext dbContext):base(dbContext)
+        public BaseRepository(IUnitOfWork unitOfWork) :base(unitOfWork.dbContext)
         {
-            _dbContext = dbContext;
+            _unitOfWork = unitOfWork;
         }
 
         /// <summary>
@@ -38,8 +39,7 @@ namespace BasicFramework.Impl.Repositorys
             {
                 throw new Exception("实体模型为空");
             }
-            await  _dbContext.Set<TEntity>().AddRangeAsync(entitys);
-            await _dbContext.SaveChangesAsync();
+            await  _unitOfWork.dbContext.Set<TEntity>().AddRangeAsync(entitys);
             return true;
         }
 
@@ -54,9 +54,8 @@ namespace BasicFramework.Impl.Repositorys
             {
                 throw new Exception("实体模型为空");
             }
-            _dbContext.Set<TEntity>().UpdateRange(entitys);
-            await _dbContext.SaveChangesAsync();
-            return true;
+            _unitOfWork.dbContext.Set<TEntity>().UpdateRange(entitys);
+            return await Task.FromResult(true);
         } 
 
         /// <summary>
@@ -70,9 +69,8 @@ namespace BasicFramework.Impl.Repositorys
             {
                 throw new Exception("实体模型为空");
             }
-            _dbContext.Set<TEntity>().RemoveRange(entitys);
-            await _dbContext.SaveChangesAsync();
-            return true;
+            _unitOfWork .dbContext.Set<TEntity>().RemoveRange(entitys);
+            return await Task.FromResult(true);
         }
 
        

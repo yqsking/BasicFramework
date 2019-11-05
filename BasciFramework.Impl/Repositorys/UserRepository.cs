@@ -1,5 +1,6 @@
 ﻿using BasicFramework.Dommain.Entitys.User;
 using BasicFramework.Dommain.Repositorys;
+using BasicFramework.Dommain.Repositorys.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace BasicFramework.Impl.Repositorys
@@ -9,7 +10,7 @@ namespace BasicFramework.Impl.Repositorys
     /// </summary>
     public  class UserRepository:BaseRepository<UserEntity>, IUserRepository
     {
-        public UserRepository(DbContext db):base(db)
+        public UserRepository(IUnitOfWork unitOfWork):base(unitOfWork)
         {
 
         }

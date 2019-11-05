@@ -59,10 +59,11 @@
             添加用户命令处理器
             </summary>
         </member>
-        <member name="M:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler.#ctor(BasicFramework.Dommain.Repositorys.IUserRepository)">
+        <member name="M:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler.#ctor(BasicFramework.Dommain.Repositorys.Base.IUnitOfWork,BasicFramework.Dommain.Repositorys.IUserRepository)">
             <summary>
             
             </summary>
+            <param name="unitOfWork"></param>
             <param name="userRepository"></param>
         </member>
         <member name="M:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler.Handle(BasicFramework.Appliction.Commands.User.UserRegisterCommand,System.Threading.CancellationToken)">
