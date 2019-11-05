@@ -13,23 +13,31 @@ namespace BasicFramework.Impl.Repositorys.Base
         /// <summary>
         /// 数据库上下文对象
         /// </summary>
-        public   DbContext dbContext { get; }
+        private readonly DbContext _dbContext;
 
         /// <summary>
         /// 单元事务
         /// </summary>
-        public IDbContextTransaction dbContextTransaction { get; }
+        private readonly IDbContextTransaction _dbContextTransaction ;
 
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="db"></param>
-        public UnitOfWork(DbContext db)
+        /// <param name="dbContext"></param>
+        public UnitOfWork(DbContext dbContext)
         {
-            dbContext = db;
-            dbContextTransaction = dbContext.Database.BeginTransaction();
+            _dbContext = dbContext;
+            _dbContextTransaction = _dbContext.Database.BeginTransaction();
         }
 
+        /// <summary>
+        /// 获取数据库上下文对象
+        /// </summary>
+        /// <returns></returns>
+        public  DbContext GetDbContext()
+        {
+            return _dbContext;
+        }
 
         /// <summary>
         /// 提交当前工作单元事务
@@ -37,8 +45,8 @@ namespace BasicFramework.Impl.Repositorys.Base
         /// <returns></returns>
         public async Task CommitAsync()
         {
-            await dbContextTransaction.CommitAsync();
-            await dbContextTransaction.DisposeAsync();
+            await _dbContextTransaction.CommitAsync();
+            await _dbContextTransaction.DisposeAsync();
         }
 
         /// <summary>
@@ -47,8 +55,10 @@ namespace BasicFramework.Impl.Repositorys.Base
         /// <returns></returns>
         public async Task RollbackAsync()
         {
-            await dbContextTransaction.RollbackAsync();
-            await dbContextTransaction.DisposeAsync();
+            await _dbContextTransaction.RollbackAsync();
+            await _dbContextTransaction.DisposeAsync();
         }
+
+      
     }
 }

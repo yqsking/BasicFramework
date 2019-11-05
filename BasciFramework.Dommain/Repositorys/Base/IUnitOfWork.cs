@@ -5,13 +5,17 @@ using System.Threading.Tasks;
 namespace BasicFramework.Dommain.Repositorys.Base
 {
     /// <summary>
-    /// 仓储工作单元接口(仓储工作单元默认开启事务)
+    /// 仓储工作单元接口
     /// </summary>
     public  interface IUnitOfWork
     {
-        DbContext dbContext { get; }
 
-        IDbContextTransaction dbContextTransaction { get;  }
+        /// <summary>
+        /// 获取数据库上下文对象
+        /// </summary>
+        /// <returns></returns>
+        DbContext GetDbContext();
+
 
         /// <summary>
         /// 提交当前工作单元事务

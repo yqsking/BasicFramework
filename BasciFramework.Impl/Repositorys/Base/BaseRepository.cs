@@ -1,6 +1,7 @@
 ﻿using BasicFramework.Dommain.Entitys;
 using BasicFramework.Dommain.Repositorys;
 using BasicFramework.Dommain.Repositorys.Base;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace BasicFramework.Impl.Repositorys
         /// 
         /// </summary>
         /// <param name="dbContext"></param>
-        public BaseRepository(IUnitOfWork unitOfWork) :base(unitOfWork.dbContext)
+        public BaseRepository(IUnitOfWork unitOfWork) :base(unitOfWork.GetDbContext())
         {
             _unitOfWork = unitOfWork;
         }
@@ -39,7 +40,7 @@ namespace BasicFramework.Impl.Repositorys
             {
                 throw new Exception("实体模型为空");
             }
-            await  _unitOfWork.dbContext.Set<TEntity>().AddRangeAsync(entitys);
+            await _dbContext.Set<TEntity>().AddRangeAsync(entitys);
             return true;
         }
 
@@ -54,7 +55,7 @@ namespace BasicFramework.Impl.Repositorys
             {
                 throw new Exception("实体模型为空");
             }
-            _unitOfWork.dbContext.Set<TEntity>().UpdateRange(entitys);
+            _dbContext.Set<TEntity>().UpdateRange(entitys);
             return await Task.FromResult(true);
         } 
 
@@ -69,7 +70,7 @@ namespace BasicFramework.Impl.Repositorys
             {
                 throw new Exception("实体模型为空");
             }
-            _unitOfWork .dbContext.Set<TEntity>().RemoveRange(entitys);
+            _dbContext.Set<TEntity>().RemoveRange(entitys);
             return await Task.FromResult(true);
         }
 

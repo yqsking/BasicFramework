@@ -21,7 +21,7 @@ namespace BasicFramework.Impl.Repositorys
         /// <summary>
         /// 数据库上下文对象
         /// </summary>
-        private readonly DbContext _dbContext;
+        internal readonly DbContext _dbContext;
 
         /// <summary>
         /// 
