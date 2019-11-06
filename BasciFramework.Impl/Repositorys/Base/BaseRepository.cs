@@ -1,7 +1,6 @@
 ﻿using BasicFramework.Dommain.Entitys;
 using BasicFramework.Dommain.Repositorys;
 using BasicFramework.Dommain.Repositorys.Base;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
 using System.Threading.Tasks;

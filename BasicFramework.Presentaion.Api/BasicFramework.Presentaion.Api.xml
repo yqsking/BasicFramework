@@ -21,6 +21,13 @@
             用户模块
             </summary>
         </member>
+        <member name="M:BasicFramework.Presentaion.Api.Controllers.UserController.#ctor(MediatR.IMediator,BasicFramework.Appliction.Queries.IUserQueries)">
+            <summary>
+            
+            </summary>
+            <param name="mediator"></param>
+            <param name="userQueries"></param>
+        </member>
         <member name="M:BasicFramework.Presentaion.Api.Controllers.UserController.GetUserInfo(System.String)">
             <summary>
             获取指定用户信息

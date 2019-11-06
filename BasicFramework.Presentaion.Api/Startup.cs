@@ -1,8 +1,11 @@
 using AutoMapper;
 using BasicFramework.Appliction.AutoMapper;
+using BasicFramework.Impl.DBContext;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -46,8 +49,17 @@ namespace BasicFramework.Presentaion.Api
             //添加AutoMapper的支持
             services.AddAutoMapper(typeof(UserProfile).Assembly);
 
-            ////依赖注入数据库配置
-            //services.AddDbContext<HttpContext>(d => d.UseMySql(Configuration.GetConnectionString("Default")));
+            //依赖注入中介者
+            services.AddMediatR(typeof(IMediator));
+
+            //依赖注入数据库上下文对象
+          
+            //依赖注入查询器
+
+            //依赖注入
+            services.RegisterQueries();
+
+          
 
             //添加swagger
             services.AddSwaggerGen(options =>
@@ -57,9 +69,6 @@ namespace BasicFramework.Presentaion.Api
                     Title = "BasicFramework  API",
                     Version = "v1"
                 });
-                //options.SchemaFilter<SwaggerExcludeFilter>();
-                //options.OperationFilter<SwaggerFileUploadFilter>();
-
                 var basePath = PlatformServices.Default.Application.ApplicationBasePath;
                 var xmlPathApi = Path.Combine(basePath, "BasicFramework.Presentaion.Api.xml");
                 var xmlPathModel = Path.Combine(basePath, "BasicFramework.Appliction.xml");
