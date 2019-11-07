@@ -1,6 +1,7 @@
 ﻿using BasicFramework.Appliction.Queries;
 using BasicFramework.Appliction.Queries.Impl;
 using BasicFramework.Dommain.Repositorys;
+using BasicFramework.Dommain.Repositorys.Base;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -24,7 +25,6 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="collection"></param>
         public static void RegisterRepositorys(this IServiceCollection collection)
         {
-           
         }
 
 

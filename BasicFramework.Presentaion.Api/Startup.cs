@@ -4,7 +4,6 @@ using BasicFramework.Impl.DBContext;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -53,10 +52,13 @@ namespace BasicFramework.Presentaion.Api
             services.AddMediatR(typeof(IMediator));
 
             //依赖注入数据库上下文对象
+            var sqlConnection = Configuration.GetConnectionString("Default");
+            services.AddDbContext<BasicFrameworkDbContext>(option => option.UseSqlServer(sqlConnection));
+
+            //依赖注入仓储
+
           
             //依赖注入查询器
-
-            //依赖注入
             services.RegisterQueries();
 
           
