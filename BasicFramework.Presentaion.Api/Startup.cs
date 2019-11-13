@@ -16,13 +16,23 @@ using System.IO;
 
 namespace BasicFramework.Presentaion.Api
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public IConfiguration Configuration { get; }
 
         /// <summary>
@@ -55,12 +65,12 @@ namespace BasicFramework.Presentaion.Api
             var sqlConnection = Configuration.GetConnectionString("Default");
             services.AddDbContext<BasicFrameworkDbContext>(option => option.UseSqlServer(sqlConnection));
 
+            //依赖注入公用服务
+            services.RegisterCommon();
             //依赖注入仓储
-
-          
+            services.RegisterRepository();
             //依赖注入查询器
             services.RegisterQueries();
-
           
 
             //添加swagger

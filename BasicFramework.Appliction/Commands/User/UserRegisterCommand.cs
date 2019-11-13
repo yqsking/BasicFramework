@@ -20,6 +20,10 @@ namespace BasicFramework.Appliction.Commands.User
         /// 密码
         /// </summary>
         public string Pwd { get; set; }
+        /// <summary>
+        /// 用户头像
+        /// </summary>
+        public string Photo { get; set; }
 
 
     }

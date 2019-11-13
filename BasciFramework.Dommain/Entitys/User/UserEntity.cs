@@ -6,7 +6,7 @@ namespace BasicFramework.Dommain.Entitys.User
     /// <summary>
     /// 用户基础信息
     /// </summary>
-    [Table("t_User_Users")]
+    [Table("t_User_User")]
     public  class UserEntity:BaseEntity
     {
         /// <summary>
@@ -15,17 +15,19 @@ namespace BasicFramework.Dommain.Entitys.User
         /// <param name="userName">用户名</param>
         /// <param name="phone">手机号</param>
         /// <param name="pwd">密码</param>
-        public UserEntity(string userName,string phone,string pwd)
+        /// <param name="photo">用户头像</param>
+        public UserEntity(string userName,string phone,string pwd,string photo)
         {
             UserName = userName;
             Phone = phone;
             Pwd = pwd;
+            Photo = photo;
         }
 
         /// <summary>
         /// 用户名
         /// </summary>
-        [MaxLength(50)]
+        [MaxLength(50),Required]
         public string UserName { get; private set; }
 
         /// <summary>
@@ -40,7 +42,7 @@ namespace BasicFramework.Dommain.Entitys.User
         /// <summary>
         /// 手机号
         /// </summary>
-        [MaxLength(20)]
+        [MaxLength(20),Required]
         public string Phone { get; private set; }
 
         /// <summary>
@@ -55,6 +57,7 @@ namespace BasicFramework.Dommain.Entitys.User
         /// <summary>
         /// 登录密码
         /// </summary>
+        [MaxLength(10), Required]
         public string Pwd { get; private set; }
 
         /// <summary>
@@ -65,5 +68,22 @@ namespace BasicFramework.Dommain.Entitys.User
         {
             Pwd = pwd;
         }
+
+        /// <summary>
+        /// 用户头像
+        /// </summary>
+        [MaxLength(200)]
+        public string Photo { get; private set; }
+
+        /// <summary>
+        /// 设置用户头像
+        /// </summary>
+        /// <param name="photo"></param>
+        public void SetPhoto(string photo)
+        {
+            Photo = photo;
+        }
+
+      
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BasicFramework.Dommain.Entitys.User
 {
@@ -8,6 +9,16 @@ namespace BasicFramework.Dommain.Entitys.User
     [Table("t_User_RoleRoot")]
     public  class RoleRootEntity:BaseEntity
     {
+        /// <summary>
+        /// 角色id
+        /// </summary>
+        [MaxLength(32), Required]
+        public string UserRoleId { get;private set; }
 
+        /// <summary>
+        /// 权限id
+        /// </summary>
+        [MaxLength(32), Required]
+        public string RootId { get; private set; }
     }
 }

@@ -19,7 +19,7 @@ namespace BasicFramework.Dommain.Entitys
         /// <summary>
         /// 唯一id
         /// </summary>
-        [Key]
+        [Key,MaxLength(32)]
         public string Id { get; private set; }
 
         /// <summary>

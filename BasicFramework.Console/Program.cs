@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 
@@ -8,13 +9,13 @@ namespace BasicFramework.Presentaion.Console
     {
         static void Main(string[] args)
         {
-            List<UserInfo> list = new List<UserInfo>()
-            {
-                new UserInfo { Id=1, UserName="saber",Age=18},new UserInfo { Id=2, UserName="archar",Age=20},new UserInfo { Id=3, UserName="张三",Age=20}
-            };
-            var temp= list.OrderByDescending(item=>item.Age).ThenBy(item=>item.Id);
-           
-          
+            //List<UserInfo> list = new List<UserInfo>()
+            //{
+            //    new UserInfo { Id=1, UserName="saber",Age=18},new UserInfo { Id=2, UserName="archar",Age=20},new UserInfo { Id=3, UserName="张三",Age=20}
+            //};
+            //var temp= list.OrderByDescending(item=>item.Age).ThenBy(item=>item.Id);
+
+           System.Console.WriteLine( Guid.NewGuid().ToString("N"));
             
         }
 
