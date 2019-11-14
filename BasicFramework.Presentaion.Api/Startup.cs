@@ -68,7 +68,7 @@ namespace BasicFramework.Presentaion.Api
             //依赖注入公用服务
             services.RegisterCommon();
             //依赖注入仓储
-            services.RegisterRepository();
+            services.RegisterRepositorys();
             //依赖注入查询器
             services.RegisterQueries();
           

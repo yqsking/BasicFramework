@@ -201,28 +201,5 @@
             登录密码
             </summary>
         </member>
-        <member name="T:Microsoft.Extensions.DependencyInjection.DIConfig">
-            <summary>
-            依赖注入服务
-            </summary>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.DIConfig.RegisterCommon(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            依赖注入公用服务
-            </summary>
-            <param name="collection"></param>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.DIConfig.RegisterQueries(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            依赖注入查询器
-            </summary>
-            <param name="collection"></param>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.DIConfig.RegisterRepository(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            依赖注入仓储
-            </summary>
-            <param name="collection"></param>
-        </member>
     </members>
 </doc>

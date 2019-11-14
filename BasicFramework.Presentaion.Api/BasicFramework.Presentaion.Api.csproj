@@ -22,6 +22,7 @@
     <ProjectReference Include="..\BasciFramework.Impl\BasicFramework.Impl.csproj" />
     <ProjectReference Include="..\BasicFramework.Appliction\BasicFramework.Appliction.csproj" />
     <ProjectReference Include="..\BasicFramework.Common\BasicFramework.Common.csproj" />
+    <ProjectReference Include="..\BasicFramework.Presenentaion.DI\BasicFramework.Presenentaion.DI.csproj" />
   </ItemGroup>
 
 </Project>
