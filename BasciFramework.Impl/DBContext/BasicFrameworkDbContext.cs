@@ -23,6 +23,10 @@ namespace BasicFramework.Impl.DBContext
         /// </summary>
         public DbSet<RoleEntity> RoleEntitys { get; set; }
         /// <summary>
+        /// 权限信息
+        /// </summary>
+        public DbSet<RootEntity> RootEntitys { get; set; }
+        /// <summary>
         /// 用户角色
         /// </summary>
         public DbSet<UserRoleEntity> UserRoleEntitys { get; set; }
