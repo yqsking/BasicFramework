@@ -26,15 +26,42 @@ namespace BasicFramework.Dommain.Entitys.User
         /// </summary>
         [MaxLength(50),Required]
         public string RootName { get; private set; }
+
+        /// <summary>
+        /// 设置权限名
+        /// </summary>
+        /// <param name="rootName"></param>
+        public void SetRootName(string rootName)
+        {
+            RootName = rootName;
+        }
         /// <summary>
         /// 权限代码
         /// </summary>
         [MaxLength(50),Required]
         public string RootCode { get; private set; }
+
+        /// <summary>
+        /// 设置权限代码
+        /// </summary>
+        /// <param name="rootCode"></param>
+        public void SetRootCode(string rootCode)
+        {
+            RootCode = rootCode;
+        }
         /// <summary>
         /// 备注
         /// </summary>
         [MaxLength(200)]
         public string Remark { get; private set; }
+
+        /// <summary>
+        /// 设置备注
+        /// </summary>
+        /// <param name="remark"></param>
+        public void SetRemark(string remark)
+        {
+            Remark = remark;
+        }
     }
 }

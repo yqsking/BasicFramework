@@ -10,6 +10,17 @@ namespace BasicFramework.Dommain.Entitys.User
     public  class RoleRootEntity:BaseEntity
     {
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="userRoleId">角色id</param>
+        /// <param name="rootId">权限id</param>
+        public RoleRootEntity(string userRoleId,string rootId)
+        {
+            UserRoleId = userRoleId;
+            RootId = rootId;
+        }
+
+        /// <summary>
         /// 角色id
         /// </summary>
         [MaxLength(32), Required]
