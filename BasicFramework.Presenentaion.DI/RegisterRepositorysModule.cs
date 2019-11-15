@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Linq;
+using System.Reflection;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
     /// 依赖注入仓储
     /// </summary>
-    public static  class RegisterRepositorysModule
+    public static class RegisterRepositorysModule
     {
         /// <summary>
         /// 依赖注入仓储
@@ -15,6 +14,19 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <param name="collection"></param>
         public static void RegisterRepositorys(this IServiceCollection collection)
         {
+            var iRepositorys = Assembly.Load("BasicFramework.Dommain").GetTypes().Where(item => item.IsInterface && item.Name.EndsWith("Repository"));
+            if (iRepositorys.Any())
+            {
+                var repositorys = Assembly.Load("BasicFramework.Impl").GetTypes().Where(item => item.IsClass && !item.IsAbstract && item.Name.EndsWith("Repository"));
+                foreach(var item in iRepositorys )
+                {
+                    var impl = repositorys.FirstOrDefault(args=>item.IsAssignableFrom(args));
+                    if(impl!=null)
+                    {
+                        collection.AddScoped(item,impl);
+                    }
+                }
+            }
 
         }
     }
