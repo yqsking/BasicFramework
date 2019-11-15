@@ -25,6 +25,21 @@ namespace BasicFramework.Appliction.Commands.User
         /// </summary>
         public string Photo { get; set; }
 
+        /// <summary>
+        /// qq号
+        /// </summary>
+        public string QQNumber { get; set; }
+
+        /// <summary>
+        /// 微信号
+        /// </summary>
+        public string WeCharNumber { get; set; }
+
+        /// <summary>
+        /// 电子邮箱
+        /// </summary>
+        public string Email { get; set; }
+
 
     }
 }

@@ -55,7 +55,7 @@ namespace BasicFramework.Presentaion.Api
             services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin() .AllowAnyMethod() .AllowAnyHeader()));
             services.AddHttpClient();
 
-            //添加AutoMapper的支持
+            //依赖注入automapper
             services.AddAutoMapper(typeof(UserProfile).Assembly);
 
             //依赖注入中介者
@@ -63,7 +63,7 @@ namespace BasicFramework.Presentaion.Api
 
             //依赖注入数据库上下文对象
             var sqlConnection = Configuration.GetConnectionString("Default");
-            services.AddDbContext<BasicFrameworkDbContext>(option => option.UseSqlServer(sqlConnection));
+            services.AddDbContext<BasicFrameworkDbContext>(option => option.UseSqlServer(sqlConnection,provider0ptions => provider0ptions.CommandTimeout(120)));
 
             //依赖注入公用服务
             services.RegisterCommon();

@@ -40,8 +40,8 @@ namespace BasicFramework.Presentaion.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(UserResponseDto))]
         public async Task<IActionResult> GetUserInfo([FromRoute]string id)
         {
-           //var result=await  _userQueries.GetUserById(id);
-           return Ok(await Task.FromResult(new UserResponseDto { UserName = "saber" }));
+           var result=await  _userQueries.GetUserById(id);
+           return Ok(result);
           
         }
     }

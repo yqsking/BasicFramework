@@ -40,7 +40,7 @@ namespace BasicFramework.Appliction.Handlers.User
             {
                 return new ApiResult { IsSuccess=false,Message=$"抱歉,手机号：{request.Phone.Trim()}已被注册！"};
             }
-            var result=await  _userRepository.AddEntityAsync(new Dommain.Entitys.User.UserEntity(request.UserName,request.Phone,request.Pwd,request.Photo));
+            var result=await  _userRepository.AddEntityAsync(new Dommain.Entitys.User.UserEntity(request.UserName.Trim(),request.Phone.Trim(),request.Pwd.Trim(),request.Photo.Trim(),request.QQNumber.Trim(),request.WeCharNumber .Trim(),request.Email.Trim()));
             await  _unitOfWork.CommitAsync();
             return new ApiResult { IsSuccess=result,Message=result?"注册成功！":"注册失败！"};
         }

@@ -9,6 +9,8 @@ namespace BasicFramework.Dommain.Entitys.User
     [Table("t_User_User")]
     public  class UserEntity:BaseEntity
     {
+
+
         /// <summary>
         /// 
         /// </summary>
@@ -16,12 +18,18 @@ namespace BasicFramework.Dommain.Entitys.User
         /// <param name="phone">手机号</param>
         /// <param name="pwd">密码</param>
         /// <param name="photo">用户头像</param>
-        public UserEntity(string userName,string phone,string pwd,string photo)
+        /// <param name="qqNumber">qq号码</param>
+        /// <param name="weCharNumber">微信号</param>
+        /// <param name="email">邮箱</param>
+        public UserEntity(string userName, string phone, string pwd, string photo,string qqNumber,string weCharNumber,string email)
         {
             UserName = userName;
             Phone = phone;
             Pwd = pwd;
             Photo = photo;
+            QQNumber = qqNumber;
+            WeCharNumber = weCharNumber;
+            Email = email;
         }
 
         /// <summary>
@@ -84,6 +92,47 @@ namespace BasicFramework.Dommain.Entitys.User
             Photo = photo;
         }
 
+        /// <summary>
+        /// qq号码
+        /// </summary>
+        [MaxLength(50)]
+        public string QQNumber { get; private set; }
+        /// <summary>
+        /// 设置qq号码
+        /// </summary>
+        /// <param name="qqNumber"></param>
+        public void SetQQNumber(string qqNumber)
+        {
+            QQNumber = qqNumber;
+        }
+        /// <summary>
+        /// 微信号码
+        /// </summary>
+        [MaxLength(50)]
+        public string WeCharNumber { get;private set; }
+
+        /// <summary>
+        /// 设置微信号码
+        /// </summary>
+        /// <param name="weCharNumber"></param>
+        public void SetWeCharNumber(string weCharNumber)
+        {
+            WeCharNumber = weCharNumber;
+        }
+        /// <summary>
+        /// 电子邮箱
+        /// </summary>
+        [MaxLength(50)]
+        public string Email { get;private set; }
+
+        /// <summary>
+        /// 设置电子邮箱
+        /// </summary>
+        /// <param name="email"></param>
+        public void SetEmail(string email)
+        {
+            Email = email;
+        }
       
     }
 }
