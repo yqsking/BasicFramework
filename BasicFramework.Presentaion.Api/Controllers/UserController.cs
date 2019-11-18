@@ -1,6 +1,8 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
+using BasicFramework.Appliction.Commands.User;
 using BasicFramework.Appliction.Queries;
+using BasicFramework.Appliction.ViewModels;
 using BasicFramework.Appliction.ViewModels.User;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -43,6 +45,20 @@ namespace BasicFramework.Presentaion.Api.Controllers
            var result=await  _userQueries.GetUserById(id);
            return Ok(result);
           
+        }
+
+        /// <summary>
+        /// 用户注册
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Route("register")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResult))]
+        public async Task<IActionResult> UserRegister([FromBody]UserRegisterCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
         }
     }
 }

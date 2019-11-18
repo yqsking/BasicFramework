@@ -59,6 +59,21 @@
             用户头像
             </summary>
         </member>
+        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.QQNumber">
+            <summary>
+            qq号
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.WeCharNumber">
+            <summary>
+            微信号
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.Email">
+            <summary>
+            电子邮箱
+            </summary>
+        </member>
         <member name="T:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler">
             <summary>
             添加用户命令处理器

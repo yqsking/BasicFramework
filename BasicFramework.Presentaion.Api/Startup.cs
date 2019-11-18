@@ -1,6 +1,7 @@
 using AutoMapper;
 using BasicFramework.Appliction.AutoMapper;
 using BasicFramework.Impl.DBContext;
+using BasicFramework.Presentaion.Api.MiddleWare;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -108,6 +109,8 @@ namespace BasicFramework.Presentaion.Api
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseMiddleware<ExceptionHandlerMiddleWare>();
 
             //Æô¶¯Swagger
             app.UseSwagger();

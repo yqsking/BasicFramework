@@ -6,7 +6,7 @@ namespace System.Linq
     /// <summary>
     /// WhereIf筛选拓展方法
     /// </summary>
-    public static class WhereIfExpand
+    public static class WhereIfExtension
     {
         /// <summary>
         /// 当前置条件成立时，返回符合筛选条件的数据源;不成立时，返回所有数据源

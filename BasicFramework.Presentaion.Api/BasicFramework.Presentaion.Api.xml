@@ -35,6 +35,45 @@
             <param name="id">用户唯一id</param>
             <returns></returns>
         </member>
+        <member name="M:BasicFramework.Presentaion.Api.Controllers.UserController.UserRegister(BasicFramework.Appliction.Commands.User.UserRegisterCommand)">
+            <summary>
+            用户注册
+            </summary>
+            <param name="command"></param>
+            <returns></returns>
+        </member>
+        <member name="T:BasicFramework.Presentaion.Api.MiddleWare.ExceptionHandlerMiddleWare">
+            <summary>
+            全局异常处理中间件
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.MiddleWare.ExceptionHandlerMiddleWare.#ctor(Microsoft.AspNetCore.Http.RequestDelegate)">
+            <summary>
+            
+            </summary>
+            <param name="next"></param>
+            <param name="logger"></param>
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.MiddleWare.ExceptionHandlerMiddleWare.Invoke(Microsoft.AspNetCore.Http.HttpContext)">
+            <summary>
+            
+            </summary>
+            <param name="context"></param>
+            <returns></returns>
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.MiddleWare.ExceptionHandlerMiddleWare.HandleExceptionAsync(Microsoft.AspNetCore.Http.HttpContext,System.Exception,System.String,System.String)">
+            <summary>
+            处理异常信息
+            </summary>
+        </member>
+        <member name="M:BasicFramework.Presentaion.Api.MiddleWare.ExceptionHandlerMiddleWare.RequestToString(Microsoft.AspNetCore.Http.HttpRequest,System.String)">
+            <summary>
+            获取请求日志
+            </summary>
+            <param name="request"></param>
+            <param name="ticketId"></param>
+            <returns></returns>
+        </member>
         <member name="T:BasicFramework.Presentaion.Api.Program">
             <summary>
             

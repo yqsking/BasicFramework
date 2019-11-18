@@ -35,6 +35,7 @@ namespace BasicFramework.Appliction.Handlers.User
         /// <returns></returns>
         public async  Task<ApiResult> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
         {
+            throw new System.Exception("添加失败");
             bool exists=await  _userRepository.ExistAsync(item=>item.Phone==request.Phone.Trim());
             if(exists)
             {

@@ -10,7 +10,7 @@ namespace BasicFramework.Common.Expands
     /// <summary>
     /// 类型转换拓展
     /// </summary>
-    public static  class ConvertExpand
+    public static  class ConvertExtension
     {
         /// <summary>
         /// 字符串转实体

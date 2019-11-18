@@ -6,7 +6,7 @@ namespace System.Linq
     /// <summary>
     /// OrderByExpand排序拓展
     /// </summary>
-    public static class OrderByExpand
+    public static class OrderByExtension
     {
         /// <summary>
         /// 排序
