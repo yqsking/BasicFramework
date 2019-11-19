@@ -1,6 +1,6 @@
 ﻿using System.Net;
 using System.Threading.Tasks;
-using BasicFramework.Appliction.Commands;
+using BasicFramework.Appliction.Commands.User;
 using BasicFramework.Appliction.Queries;
 using BasicFramework.Appliction.ViewModels;
 using BasicFramework.Appliction.ViewModels.User;

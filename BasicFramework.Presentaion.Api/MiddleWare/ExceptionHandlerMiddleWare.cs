@@ -24,7 +24,7 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
         /// 
         /// </summary>
         /// <param name="next"></param>
-        /// <param name="logger"></param>
+      //  /// <param name="logger"></param>
         public ExceptionHandlerMiddleWare(RequestDelegate next/*,ILogger logger*/)      
         {
             _next = next;

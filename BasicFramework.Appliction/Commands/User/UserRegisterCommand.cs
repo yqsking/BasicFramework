@@ -1,7 +1,7 @@
 ﻿using BasicFramework.Appliction.ViewModels;
 using MediatR;
 
-namespace BasicFramework.Appliction.Commands
+namespace BasicFramework.Appliction.Commands.User
 {
     /// <summary>
     /// 添加用户命令
