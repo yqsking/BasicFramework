@@ -35,6 +35,7 @@ namespace BasicFramework.Appliction.Handlers
         /// <returns></returns>
         public async  Task<ApiResult> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
         {
+            throw new System.Exception("就是不允许你注册");
             bool exists=await  _userRepository.ExistAsync(item=>item.Phone==request.Phone.Trim());
             if(exists)
             {

@@ -1,6 +1,5 @@
 using AutoMapper;
 using BasicFramework.Appliction.AutoMapper;
-using BasicFramework.Appliction.Commands;
 using BasicFramework.Impl.DBContext;
 using BasicFramework.Presentaion.Api.MiddleWare;
 using MediatR;
@@ -110,11 +109,10 @@ namespace BasicFramework.Presentaion.Api
             }
           
             app.UseRouting();
-
+            app.UseMiddleware<ExceptionHandlerMiddleWare>();
             app.UseAuthorization();
 
-            //app.UseMiddleware<ExceptionHandlerMiddleWare>();
-
+         
             //Æô¶¯Swagger
             app.UseSwagger();
             app.UseSwaggerUI(c =>

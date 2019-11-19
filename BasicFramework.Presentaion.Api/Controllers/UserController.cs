@@ -57,6 +57,7 @@ namespace BasicFramework.Presentaion.Api.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ApiResult))]
         public async Task<IActionResult> UserRegister([FromBody]UserRegisterCommand command)
         {
+
             var result = await _mediator.Send(command);
             return Ok(result);
         }

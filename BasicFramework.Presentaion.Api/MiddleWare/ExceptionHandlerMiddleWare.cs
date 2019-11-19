@@ -18,7 +18,7 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
     public  class ExceptionHandlerMiddleWare
     {
         private readonly RequestDelegate _next;
-        private readonly ILogger _logger;
+        //private readonly ILogger _logger;
 
         /// <summary>
         /// 
@@ -38,15 +38,16 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
         /// <returns></returns>
         public async Task Invoke(HttpContext context)
         {
+            //基于guid生成一个唯一标识
+            var ticketId = Guid.NewGuid().ToString();
+            var requestToString = await RequestToString(context.Request, ticketId);
             try
             {
                 await _next.Invoke(context);
             }
             catch(Exception ex)
             {
-                //基于guid生成一个唯一标识
-                var ticketId = Guid.NewGuid().ToString();
-                var requestToString = await RequestToString(context.Request, ticketId);
+               
                 await HandleExceptionAsync(context, ex, ticketId, requestToString);
             }
         }
@@ -105,7 +106,7 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
             //    response.ContentType = "application/json;charset=utf-8";
             //    return context.Response.WriteAsync(_jsonConverter.SerializeObject(metadata));
             //}
-            return context.Response.WriteAsync("hello");
+            return context.Response.WriteAsync(requestString);
         }
 
         /// <summary>
@@ -139,7 +140,6 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
                     message.AppendLine($"--> [{headerItem.Key}]: {headerItem.Value} ");
                 }
             }
-
             //Body
             if (!string.IsNullOrWhiteSpace(request.Method)&& !request.Method.ToUpper().Equals("GET") && !request.Headers["Content-Type"].ToString().ToLower().Equals("multipart/form-data"))
             {
