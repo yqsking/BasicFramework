@@ -1,5 +1,6 @@
 using AutoMapper;
 using BasicFramework.Appliction.AutoMapper;
+using BasicFramework.Appliction.Commands;
 using BasicFramework.Impl.DBContext;
 using BasicFramework.Presentaion.Api.MiddleWare;
 using MediatR;
@@ -70,6 +71,8 @@ namespace BasicFramework.Presentaion.Api
             services.RegisterCommon();
             //“¿¿µ◊¢»Î≤÷¥¢
             services.RegisterRepositorys();
+            //“¿¿µ◊¢»Î√¸¡Ó
+            services.RegisterCommand();
             //“¿¿µ◊¢»Î≤È—Ø∆˜
             services.RegisterQueries();
           
@@ -110,7 +113,7 @@ namespace BasicFramework.Presentaion.Api
 
             app.UseAuthorization();
 
-            app.UseMiddleware<ExceptionHandlerMiddleWare>();
+            //app.UseMiddleware<ExceptionHandlerMiddleWare>();
 
             //∆Ù∂ØSwagger
             app.UseSwagger();

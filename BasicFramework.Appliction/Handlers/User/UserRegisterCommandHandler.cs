@@ -1,4 +1,4 @@
-﻿using BasicFramework.Appliction.Commands.User;
+﻿using BasicFramework.Appliction.Commands;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
@@ -6,7 +6,7 @@ using BasicFramework.Dommain.Repositorys;
 using BasicFramework.Appliction.ViewModels;
 using BasicFramework.Dommain.Repositorys.Base;
 
-namespace BasicFramework.Appliction.Handlers.User
+namespace BasicFramework.Appliction.Handlers
 {
     /// <summary>
     /// 添加用户命令处理器
@@ -35,7 +35,6 @@ namespace BasicFramework.Appliction.Handlers.User
         /// <returns></returns>
         public async  Task<ApiResult> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
         {
-            throw new System.Exception("添加失败");
             bool exists=await  _userRepository.ExistAsync(item=>item.Phone==request.Phone.Trim());
             if(exists)
             {

@@ -3,6 +3,7 @@ using BasicFramework.Impl.DBContext;
 using BasicFramework.Impl.Repositorys.Base;
 using Microsoft.EntityFrameworkCore;
 
+
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
@@ -18,6 +19,7 @@ namespace Microsoft.Extensions.DependencyInjection
         {
             collection.AddScoped(typeof(DbContext),typeof(BasicFrameworkDbContext));
             collection.AddScoped(typeof(IUnitOfWork),typeof(UnitOfWork));
+
         }
     }
 }

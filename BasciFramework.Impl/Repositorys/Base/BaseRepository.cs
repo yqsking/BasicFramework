@@ -40,6 +40,7 @@ namespace BasicFramework.Impl.Repositorys
                 throw new Exception("实体模型为空");
             }
             await _dbContext.Set<TEntity>().AddRangeAsync(entitys);
+            await _dbContext.SaveChangesAsync();
             return true;
         }
 
@@ -55,7 +56,8 @@ namespace BasicFramework.Impl.Repositorys
                 throw new Exception("实体模型为空");
             }
             _dbContext.Set<TEntity>().UpdateRange(entitys);
-            return await Task.FromResult(true);
+            await _dbContext.SaveChangesAsync();
+            return true;
         } 
 
         /// <summary>
@@ -70,7 +72,8 @@ namespace BasicFramework.Impl.Repositorys
                 throw new Exception("实体模型为空");
             }
             _dbContext.Set<TEntity>().RemoveRange(entitys);
-            return await Task.FromResult(true);
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
 
        

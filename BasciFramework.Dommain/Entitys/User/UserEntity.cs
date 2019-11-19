@@ -10,6 +10,8 @@ namespace BasicFramework.Dommain.Entitys.User
     public  class UserEntity:BaseEntity
     {
 
+        private UserEntity() { }
+
 
         /// <summary>
         /// 

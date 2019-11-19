@@ -4,14 +4,16 @@ using BasicFramework.Impl.DBContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace BasicFramework.Impl.Migrations
 {
     [DbContext(typeof(BasicFrameworkDbContext))]
-    partial class BasicFrameworkDbContextModelSnapshot : ModelSnapshot
+    [Migration("20191119074204_updateuserinfo")]
+    partial class updateuserinfo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

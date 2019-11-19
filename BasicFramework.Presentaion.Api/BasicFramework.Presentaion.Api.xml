@@ -35,7 +35,7 @@
             <param name="id">用户唯一id</param>
             <returns></returns>
         </member>
-        <member name="M:BasicFramework.Presentaion.Api.Controllers.UserController.UserRegister(BasicFramework.Appliction.Commands.User.UserRegisterCommand)">
+        <member name="M:BasicFramework.Presentaion.Api.Controllers.UserController.UserRegister(BasicFramework.Appliction.Commands.UserRegisterCommand)">
             <summary>
             用户注册
             </summary>

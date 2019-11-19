@@ -34,59 +34,59 @@
             <param name="next"></param>
             <returns></returns>
         </member>
-        <member name="T:BasicFramework.Appliction.Commands.User.UserRegisterCommand">
+        <member name="T:BasicFramework.Appliction.Commands.UserRegisterCommand">
             <summary>
             添加用户命令
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.UserName">
+        <member name="P:BasicFramework.Appliction.Commands.UserRegisterCommand.UserName">
             <summary>
             用户名
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.Phone">
+        <member name="P:BasicFramework.Appliction.Commands.UserRegisterCommand.Phone">
             <summary>
             手机号
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.Pwd">
+        <member name="P:BasicFramework.Appliction.Commands.UserRegisterCommand.Pwd">
             <summary>
             密码
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.Photo">
+        <member name="P:BasicFramework.Appliction.Commands.UserRegisterCommand.Photo">
             <summary>
             用户头像
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.QQNumber">
+        <member name="P:BasicFramework.Appliction.Commands.UserRegisterCommand.QQNumber">
             <summary>
             qq号
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.WeCharNumber">
+        <member name="P:BasicFramework.Appliction.Commands.UserRegisterCommand.WeCharNumber">
             <summary>
             微信号
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.Commands.User.UserRegisterCommand.Email">
+        <member name="P:BasicFramework.Appliction.Commands.UserRegisterCommand.Email">
             <summary>
             电子邮箱
             </summary>
         </member>
-        <member name="T:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler">
+        <member name="T:BasicFramework.Appliction.Handlers.UserRegisterCommandHandler">
             <summary>
             添加用户命令处理器
             </summary>
         </member>
-        <member name="M:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler.#ctor(BasicFramework.Dommain.Repositorys.Base.IUnitOfWork,BasicFramework.Dommain.Repositorys.IUserRepository)">
+        <member name="M:BasicFramework.Appliction.Handlers.UserRegisterCommandHandler.#ctor(BasicFramework.Dommain.Repositorys.Base.IUnitOfWork,BasicFramework.Dommain.Repositorys.IUserRepository)">
             <summary>
             
             </summary>
             <param name="unitOfWork"></param>
             <param name="userRepository"></param>
         </member>
-        <member name="M:BasicFramework.Appliction.Handlers.User.UserRegisterCommandHandler.Handle(BasicFramework.Appliction.Commands.User.UserRegisterCommand,System.Threading.CancellationToken)">
+        <member name="M:BasicFramework.Appliction.Handlers.UserRegisterCommandHandler.Handle(BasicFramework.Appliction.Commands.UserRegisterCommand,System.Threading.CancellationToken)">
             <summary>
             添加用户
             </summary>
