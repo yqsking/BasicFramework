@@ -2,6 +2,9 @@ using AutoMapper;
 using BasicFramework.Appliction.AutoMapper;
 using BasicFramework.Impl.DBContext;
 using BasicFramework.Presentaion.Api.MiddleWare;
+using log4net;
+using log4net.Config;
+using log4net.Repository;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,12 +26,19 @@ namespace BasicFramework.Presentaion.Api
     public class Startup
     {
         /// <summary>
+        /// »’÷æ≤÷¥¢
+        /// </summary>
+        public static ILoggerRepository LogRepository { get; set; }
+
+        /// <summary>
         /// 
         /// </summary>
         /// <param name="configuration"></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            LogRepository = LogManager.CreateRepository("BasicFrameworkLogRepository");
+            XmlConfigurator.Configure(LogRepository, new FileInfo("log4net.config"));
         }
 
         /// <summary>
@@ -74,7 +84,6 @@ namespace BasicFramework.Presentaion.Api
             services.RegisterCommand();
             //“¿¿µ◊¢»Î≤È—Ø∆˜
             services.RegisterQueries();
-          
 
             //ÃÌº”swagger
             services.AddSwaggerGen(options =>
@@ -103,6 +112,7 @@ namespace BasicFramework.Presentaion.Api
         /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+           
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

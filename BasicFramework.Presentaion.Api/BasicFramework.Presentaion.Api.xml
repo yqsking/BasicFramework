@@ -70,7 +70,7 @@
             获取请求日志
             </summary>
             <param name="request"></param>
-            <param name="ticketId"></param>
+            <param name="errorId"></param>
             <returns></returns>
         </member>
         <member name="T:BasicFramework.Presentaion.Api.Program">
@@ -94,6 +94,11 @@
         <member name="T:BasicFramework.Presentaion.Api.Startup">
             <summary>
             
+            </summary>
+        </member>
+        <member name="P:BasicFramework.Presentaion.Api.Startup.LogRepository">
+            <summary>
+            日志仓储
             </summary>
         </member>
         <member name="M:BasicFramework.Presentaion.Api.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">

@@ -10,6 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="log4net" Version="2.0.8" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
@@ -27,6 +28,10 @@
     <ProjectReference Include="..\BasicFramework.Appliction\BasicFramework.Appliction.csproj" />
     <ProjectReference Include="..\BasicFramework.Common\BasicFramework.Common.csproj" />
     <ProjectReference Include="..\BasicFramework.Presenentaion.DI\BasicFramework.Presenentaion.DI.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Logs\Error\2019-11-20\" />
   </ItemGroup>
 
 </Project>

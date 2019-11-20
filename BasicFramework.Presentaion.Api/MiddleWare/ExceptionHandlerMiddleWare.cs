@@ -1,11 +1,9 @@
 ﻿using BasicFramework.Common.Extensions;
+using log4net;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
-using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using System;
 using System.IO;
-using System.Net;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -18,17 +16,16 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
     public  class ExceptionHandlerMiddleWare
     {
         private readonly RequestDelegate _next;
-        //private readonly ILogger _logger;
+        private readonly ILog _log;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="next"></param>
-      //  /// <param name="logger"></param>
-        public ExceptionHandlerMiddleWare(RequestDelegate next/*,ILogger logger*/)      
+        public ExceptionHandlerMiddleWare(RequestDelegate next)      
         {
             _next = next;
-           // _logger = logger;
+           _log = LogManager.GetLogger(Startup.LogRepository.Name, typeof(ExceptionHandlerMiddleWare));
         }
 
         /// <summary>
@@ -39,8 +36,8 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
         public async Task Invoke(HttpContext context)
         {
             //基于guid生成一个唯一标识
-            var ticketId = Guid.NewGuid().ToString();
-            var requestToString = await RequestToString(context.Request, ticketId);
+            var errorId = Guid.NewGuid().ToString();
+            var requestToString = await RequestToString(context.Request, errorId);
             try
             {
                 await _next.Invoke(context);
@@ -48,64 +45,22 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
             catch(Exception ex)
             {
                
-                await HandleExceptionAsync(context, ex, ticketId, requestToString);
+                await HandleExceptionAsync(context, ex, errorId, requestToString);
             }
         }
 
         /// <summary>
         /// 处理异常信息
         /// </summary>
-        private Task HandleExceptionAsync(HttpContext context, Exception ex, string ticketId, string requestString)
+        private Task HandleExceptionAsync(HttpContext context, Exception ex, string errorId, string requestString)
         {
-            //// 自定义异常
-            //if (ex is TrackingYeeException trackingYeeException)
-            //{
-            //    var errorCode = trackingYeeException.ErrorCode;
-            //    var errorMsg = trackingYeeException.CustomMessage;
-
-            //    var metadata = new ErrorData(errorCode, errorMsg, context.Request.GetAbsoluteUri())
-            //    {
-            //        TicketId = ticketId,
-            //    };
-
-            //    _logger.LogWarning(ex, requestString);
-
-            //    var response = context.Response;
-            //    response.StatusCode = (int)HttpStatusCode.BadRequest;
-            //    response.ContentType = "application/json;charset=utf-8";
-
-            //    return context.Response.WriteAsync(JsonConvert.SerializeObject(metadata));
-            //}
-            ////序列化异常
-            //else if (ex is System.Runtime.Serialization.SerializationException)
-            //{
-            //    var metadata = new ErrorData(string.Empty, string.Format("序列化发生异常，可能提交的数据格式有误：{0}", ex.Message), context.Request.GetAbsoluteUri())
-            //    {
-            //        TicketId = ticketId,
-            //    };
-
-            //    _logger.LogError(ex, requestString);
-
-            //    var response = context.Response;
-            //    response.StatusCode = (int)HttpStatusCode.BadRequest;
-            //    response.ContentType = "application/json;charset=utf-8";
-            //    return context.Response.WriteAsync(_jsonConverter.SerializeObject(metadata));
-            //}
-            ////未处理异常
-            //else
-            //{
-            //    var metadata = new ErrorData(string.Empty, string.Format("抱歉！发现系统异常，请您用此TicketId:{0}联系系统管理员，我们将以最快的速度为您解决此问题，谢谢！", ticketId), context.Request.GetAbsoluteUri())
-            //    {
-            //        TicketId = ticketId,
-            //    };
-
-            //    _logger.LogError(ex, requestString);
-
-            //    var response = context.Response;
-            //    response.StatusCode = (int)HttpStatusCode.InternalServerError;
-            //    response.ContentType = "application/json;charset=utf-8";
-            //    return context.Response.WriteAsync(_jsonConverter.SerializeObject(metadata));
-            //}
+            var message = new StringBuilder();
+            message.AppendLine("【异常ID】："+errorId);
+            message.AppendLine("【异常信息】："+ex.Message);
+            message.AppendLine("【请求参数】：");
+            message.AppendLine(requestString);
+            message.AppendLine("【堆栈调用】：" + ex.StackTrace);
+            _log.Error(message.ToString());
             return context.Response.WriteAsync(requestString);
         }
 
@@ -113,15 +68,15 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
         /// 获取请求日志
         /// </summary>
         /// <param name="request"></param>
-        /// <param name="ticketId"></param>
+        /// <param name="errorId"></param>
         /// <returns></returns>
-        private async Task<string> RequestToString(HttpRequest request, string ticketId = "")
+        private async Task<string> RequestToString(HttpRequest request, string errorId = "")
         {
             var message = new StringBuilder();
 
-            if (!string.IsNullOrEmpty(ticketId))
+            if (!string.IsNullOrEmpty(errorId))
             {
-                message.AppendLine($"[TicketId]: {ticketId} ");
+                message.AppendLine($"[ErrorId]: {errorId} ");
             }
 
             if (request.Method != null)
