@@ -135,9 +135,9 @@
             请求状态
             </summary>
         </member>
-        <member name="P:BasicFramework.Appliction.ViewModels.ApiResult.ErrorCode">
+        <member name="P:BasicFramework.Appliction.ViewModels.ApiResult.ErrorId">
             <summary>
-            错误代码
+            错误Id
             </summary>
         </member>
         <member name="P:BasicFramework.Appliction.ViewModels.ApiResult.Message">

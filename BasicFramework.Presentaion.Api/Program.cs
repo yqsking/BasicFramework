@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace BasicFramework.Presentaion.Api
 {
@@ -24,9 +25,15 @@ namespace BasicFramework.Presentaion.Api
         /// <returns></returns>
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+            .ConfigureLogging(logger =>
+            {
+                logger.AddFilter("System", LogLevel.Warning);//¹ýÂËµôÃüÃû¿Õ¼ä
+                logger.AddFilter("Microsoft", LogLevel.Warning);
+                logger.AddLog4Net("log4net.config");
+            })
+            .ConfigureWebHostDefaults(webBuilder =>
+            {
+                webBuilder.UseStartup<Startup>();
+            });
     }
 }

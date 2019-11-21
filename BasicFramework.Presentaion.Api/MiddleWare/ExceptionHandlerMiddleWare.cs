@@ -1,7 +1,10 @@
-﻿using BasicFramework.Common.Extensions;
+﻿using BasicFramework.Appliction.ViewModels;
+using BasicFramework.Common.Extensions;
 using log4net;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.WebUtilities;
+using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Text;
@@ -16,16 +19,18 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
     public  class ExceptionHandlerMiddleWare
     {
         private readonly RequestDelegate _next;
-        private readonly ILog _log;
+        private readonly ILogger<ExceptionHandlerMiddleWare> _logger;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="next"></param>
-        public ExceptionHandlerMiddleWare(RequestDelegate next)      
+        /// <param name="logger"></param>
+        public ExceptionHandlerMiddleWare(RequestDelegate next, ILogger<ExceptionHandlerMiddleWare> logger)      
         {
             _next = next;
-           _log = LogManager.GetLogger(Startup.LogRepository.Name, typeof(ExceptionHandlerMiddleWare));
+            _logger = logger;
+           
         }
 
         /// <summary>
@@ -37,14 +42,13 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
         {
             //基于guid生成一个唯一标识
             var errorId = Guid.NewGuid().ToString();
-            var requestToString = await RequestToString(context.Request, errorId);
+            var requestToString = await RequestToString(context.Request);
             try
             {
                 await _next.Invoke(context);
             }
             catch(Exception ex)
             {
-               
                 await HandleExceptionAsync(context, ex, errorId, requestToString);
             }
         }
@@ -60,25 +64,19 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
             message.AppendLine("【请求参数】：");
             message.AppendLine(requestString);
             message.AppendLine("【堆栈调用】：" + ex.StackTrace);
-            _log.Error(message.ToString());
-            return context.Response.WriteAsync(requestString);
+            _logger.LogError(message.ToString());
+            var result= new ApiResult {ErrorId=errorId,IsSuccess=false,Message=ex.Message };
+            return context.Response.WriteAsync(JsonConvert.SerializeObject(result));
         }
 
         /// <summary>
         /// 获取请求日志
         /// </summary>
         /// <param name="request"></param>
-        /// <param name="errorId"></param>
         /// <returns></returns>
-        private async Task<string> RequestToString(HttpRequest request, string errorId = "")
+        private async Task<string> RequestToString(HttpRequest request)
         {
             var message = new StringBuilder();
-
-            if (!string.IsNullOrEmpty(errorId))
-            {
-                message.AppendLine($"[ErrorId]: {errorId} ");
-            }
-
             if (request.Method != null)
             {
                 message.AppendLine($"[Method]: {request.Method} ");

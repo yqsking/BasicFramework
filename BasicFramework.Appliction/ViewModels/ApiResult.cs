@@ -10,9 +10,9 @@
         /// </summary>
         public bool IsSuccess { get; set; }
         /// <summary>
-        /// 错误代码
+        /// 错误Id
         /// </summary>
-        public string ErrorCode { get; set; }
+        public string ErrorId { get; set; }
         /// <summary>
         /// 提示消息
         /// </summary>
