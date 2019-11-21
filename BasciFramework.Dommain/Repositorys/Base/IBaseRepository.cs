@@ -13,20 +13,20 @@ namespace BasicFramework.Dommain.Repositorys
         /// </summary>
         /// <param name="entity"></param>
         /// <returns></returns>
-        Task<bool> AddEntityAsync(params TEntity[] entity);
+        Task AddEntityAsync(params TEntity[] entity);
 
         /// <summary>
         /// 修改一个或者多个实体模型
         /// </summary>
         /// <param name="entitys"></param>
         /// <returns></returns>
-        Task<bool> UpdateEntityAsync(params TEntity[] entitys);
+        Task UpdateEntityAsync(params TEntity[] entitys);
 
         /// <summary>
         /// 删除一个或者多个实体模型
         /// </summary>
         /// <param name="entitys"></param>
         /// <returns></returns>
-        Task<bool> DeleteEntityAsync(params TEntity[] entitys);
+        Task DeleteEntityAsync(params TEntity[] entitys);
     }
 }

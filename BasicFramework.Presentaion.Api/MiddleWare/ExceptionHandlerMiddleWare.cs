@@ -1,14 +1,10 @@
 ﻿using BasicFramework.Appliction.ViewModels;
-using BasicFramework.Common.Extensions;
-using log4net;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using System;
-using System.IO;
+using System.Net;
 using System.Text;
-using System.Threading;
 using System.Threading.Tasks;
 
 namespace BasicFramework.Presentaion.Api.MiddleWare
@@ -42,7 +38,7 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
         {
             //基于guid生成一个唯一标识
             var errorId = Guid.NewGuid().ToString();
-            var requestToString = await RequestToString(context.Request);
+            var requestToString = await context.Request.RequestStringAsync();
             try
             {
                 await _next.Invoke(context);
@@ -66,58 +62,11 @@ namespace BasicFramework.Presentaion.Api.MiddleWare
             message.AppendLine("【堆栈调用】：" + ex.StackTrace);
             _logger.LogError(message.ToString());
             var result= new ApiResult {ErrorId=errorId,IsSuccess=false,Message=ex.Message };
+            context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+            context.Response.ContentType = "application/json;charset=utf-8";
             return context.Response.WriteAsync(JsonConvert.SerializeObject(result));
         }
 
-        /// <summary>
-        /// 获取请求日志
-        /// </summary>
-        /// <param name="request"></param>
-        /// <returns></returns>
-        private async Task<string> RequestToString(HttpRequest request)
-        {
-            var message = new StringBuilder();
-            if (request.Method != null)
-            {
-                message.AppendLine($"[Method]: {request.Method} ");
-            }
-
-            message.AppendLine($"[RequestUri]: {request.GetAbsoluteUri()} ");
-
-            //头部Header
-            if (request.Headers != null)
-            {
-                message.AppendLine("[Header] Values: ");
-                foreach (var headerItem in request.Headers)
-                {
-                    message.AppendLine($"--> [{headerItem.Key}]: {headerItem.Value} ");
-                }
-            }
-            //Body
-            if (!string.IsNullOrWhiteSpace(request.Method)&& !request.Method.ToUpper().Equals("GET") && !request.Headers["Content-Type"].ToString().ToLower().Equals("multipart/form-data"))
-            {
-                request.EnableBuffering();
-
-                await request.Body.DrainAsync(CancellationToken.None);
-                request.Body.Seek(0L, SeekOrigin.Begin);
-
-                var bodyContent = string.Empty;
-
-                await using (var ms = new MemoryStream(2048))
-                {
-                    request.Body.Position = 0;
-                    request.Body.CopyTo(ms);
-                    var content = ms.ToArray();
-                    bodyContent = Encoding.UTF8.GetString(content);
-                }
-
-                message.AppendLine("[Body]: ");
-                message.AppendLine($"--> {bodyContent}");
-
-                request.Body.Seek(0L, SeekOrigin.Begin);
-            }
-
-            return message.ToString();
-        }
+       
     }
 }

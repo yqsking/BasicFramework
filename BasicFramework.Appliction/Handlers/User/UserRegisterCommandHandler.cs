@@ -35,15 +35,15 @@ namespace BasicFramework.Appliction.Handlers
         /// <returns></returns>
         public async  Task<ApiResult> Handle(UserRegisterCommand request, CancellationToken cancellationToken)
         {
-            throw new System.Exception("就是不允许你注册");
             bool exists=await  _userRepository.ExistAsync(item=>item.Phone==request.Phone.Trim());
             if(exists)
             {
                 return new ApiResult { IsSuccess=false,Message=$"抱歉,手机号：{request.Phone.Trim()}已被注册！"};
             }
-            var result=await  _userRepository.AddEntityAsync(new Dommain.Entitys.User.UserEntity(request.UserName.Trim(),request.Phone.Trim(),request.Pwd.Trim(),request.Photo.Trim(),request.QQNumber.Trim(),request.WeCharNumber .Trim(),request.Email.Trim()));
+            var model = new Dommain.Entitys.User.UserEntity(request.UserName.Trim(), request.Phone.Trim(), request.Pwd.Trim(), request.Photo.Trim(), request.QQNumber.Trim(), request.WeCharNumber.Trim(), request.Email.Trim());
+            await  _userRepository.AddEntityAsync(model);
             await  _unitOfWork.CommitAsync();
-            return new ApiResult { IsSuccess=result,Message=result?"注册成功！":"注册失败！"};
+            return new ApiResult { IsSuccess=true,Message="注册成功"};
         }
     }
 }

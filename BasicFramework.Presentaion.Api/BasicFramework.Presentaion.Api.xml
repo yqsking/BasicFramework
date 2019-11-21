@@ -66,13 +66,6 @@
             处理异常信息
             </summary>
         </member>
-        <member name="M:BasicFramework.Presentaion.Api.MiddleWare.ExceptionHandlerMiddleWare.RequestToString(Microsoft.AspNetCore.Http.HttpRequest)">
-            <summary>
-            获取请求日志
-            </summary>
-            <param name="request"></param>
-            <returns></returns>
-        </member>
         <member name="T:BasicFramework.Presentaion.Api.Program">
             <summary>
             

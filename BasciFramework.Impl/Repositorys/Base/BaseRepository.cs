@@ -33,7 +33,7 @@ namespace BasicFramework.Impl.Repositorys
         /// </summary>
         /// <param name="entitys"></param>
         /// <returns></returns>
-        public async Task<bool> AddEntityAsync(params TEntity[] entitys)
+        public async Task AddEntityAsync(params TEntity[] entitys)
         {
             if(!entitys.Any())
             {
@@ -41,7 +41,6 @@ namespace BasicFramework.Impl.Repositorys
             }
             await _dbContext.Set<TEntity>().AddRangeAsync(entitys);
             await _dbContext.SaveChangesAsync();
-            return true;
         }
 
         /// <summary>
@@ -49,7 +48,7 @@ namespace BasicFramework.Impl.Repositorys
         /// </summary>
         /// <param name="entitys"></param>
         /// <returns></returns>
-        public async Task<bool> UpdateEntityAsync(params TEntity[] entitys)
+        public async Task UpdateEntityAsync(params TEntity[] entitys)
         {
             if (!entitys.Any())
             {
@@ -57,7 +56,6 @@ namespace BasicFramework.Impl.Repositorys
             }
             _dbContext.Set<TEntity>().UpdateRange(entitys);
             await _dbContext.SaveChangesAsync();
-            return true;
         } 
 
         /// <summary>
@@ -65,7 +63,7 @@ namespace BasicFramework.Impl.Repositorys
         /// </summary>
         /// <param name="entitys"></param>
         /// <returns></returns>
-        public async Task<bool> DeleteEntityAsync(params TEntity[] entitys)
+        public async Task DeleteEntityAsync(params TEntity[] entitys)
         {
             if(!entitys.Any())
             {
@@ -73,7 +71,6 @@ namespace BasicFramework.Impl.Repositorys
             }
             _dbContext.Set<TEntity>().RemoveRange(entitys);
             await _dbContext.SaveChangesAsync();
-            return true;
         }
 
        

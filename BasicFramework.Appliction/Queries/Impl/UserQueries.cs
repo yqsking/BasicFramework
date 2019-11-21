@@ -32,7 +32,6 @@ namespace BasicFramework.Appliction.Queries.Impl
         /// <returns></returns>
         public async Task<UserResponseDto> GetUserById(string Id)
         {
-            throw new System.Exception("未知异常");
            var model=await  _userReadOnlyRepository.GetByKeyAsync(Id);
            return _mapper.Map<UserResponseDto>(model);
         }
