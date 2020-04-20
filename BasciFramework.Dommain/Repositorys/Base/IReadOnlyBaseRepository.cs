@@ -1,16 +1,15 @@
-﻿using BasicFramework.Dommain.Entitys;
-using BasicFramework.Dommain.Common.Results;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using BasicFramework.Dommain.Common.Models;
 
 namespace BasicFramework.Dommain.Repositorys
 {
     /// <summary>
     /// 基础只读仓储接口
     /// </summary>
-    public  interface IReadOnlyBaseRepository<TEntity> where TEntity:BaseEntity
+    public   interface IReadOnlyBaseRepository<TEntity> where TEntity:BaseEntity
     {
         /// <summary>
         /// 查询记录数
@@ -44,10 +43,10 @@ namespace BasicFramework.Dommain.Repositorys
         /// 根据条件查询所有实体模型
         /// </summary>
         /// <param name="conditionExpression">条件表达式</param>
-        /// <param name="groupbyExpression">排序表达式</param>
+        /// <param name="orderbyExpression">排序表达式</param>
         /// <param name="isDesc">是否倒序(默认创建时间)</param>
         /// <returns></returns>
-        Task<IList<TEntity>> GetEntityAllListAsync(Expression<Func<TEntity, bool>> conditionExpression,Expression<Func<TEntity,dynamic>> groupbyExpression,bool isDesc=true);
+        Task<IList<TEntity>> GetEntityAllListAsync(Expression<Func<TEntity, bool>> conditionExpression,Expression<Func<TEntity,dynamic>> orderbyExpression,bool isDesc=true);
 
         /// <summary>
         /// 根据条件分页查询实体模型
@@ -55,10 +54,10 @@ namespace BasicFramework.Dommain.Repositorys
         /// <param name="pageIndex">当前页码</param>
         /// <param name="pageSize">每页条数</param>
         /// <param name="conditionExpression">条件表达式</param>
-        /// <param name="groupbyExpression">排序表达式</param>
+        /// <param name="orderbyExpression">排序表达式</param>
         /// <param name="isDesc">是否倒序(默认创建时间)</param>
         /// <returns></returns>
-        Task<PageResult<TEntity>> GetEntityPageList(int pageIndex,int pageSize,Expression<Func<TEntity,bool>> conditionExpression,Expression<Func<TEntity,dynamic>> groupbyExpression,bool isDesc=true);
+        Task<PageResult<TEntity>> GetEntityPageList(int pageIndex,int pageSize,Expression<Func<TEntity,bool>> conditionExpression,Expression<Func<TEntity,dynamic>> orderbyExpression,bool isDesc=true);
 
        
 

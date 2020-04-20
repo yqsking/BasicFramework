@@ -1,8 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage;
 using System.Threading.Tasks;
 
-namespace BasicFramework.Dommain.Repositorys.Base
+namespace BasicFramework.Dommain.Repositorys
 {
     /// <summary>
     /// 仓储工作单元接口

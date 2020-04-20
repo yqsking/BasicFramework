@@ -11,7 +11,7 @@ namespace BasicFramework.Appliction.Queries.Impl
     public class UserQueries : IUserQueries
     {
      
-        private readonly IUserReadOnlyRepository _userReadOnlyRepository;
+        private readonly IRootBasicRepository _userReadOnlyRepository;
         private readonly IMapper _mapper;
 
         /// <summary>
@@ -19,7 +19,7 @@ namespace BasicFramework.Appliction.Queries.Impl
         /// </summary>
         /// <param name="userReadOnlyRepository"></param>
         /// <param name="mapper"></param>
-        public UserQueries(IUserReadOnlyRepository userReadOnlyRepository,IMapper mapper)
+        public UserQueries(IRootBasicRepository userReadOnlyRepository,IMapper mapper)
         {
             _userReadOnlyRepository = userReadOnlyRepository;
             _mapper = mapper;

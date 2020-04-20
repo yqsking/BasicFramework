@@ -14,7 +14,7 @@ namespace BasicFramework.Appliction.AutoMapper
         /// </summary>
         public UserProfile()
         {
-            CreateMap<UserEntity,UserResponseDto>();
+            CreateMap<UserBasicEntity,UserResponseDto>();
         }
     }
 }

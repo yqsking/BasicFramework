@@ -1,4 +1,4 @@
-﻿using BasicFramework.Dommain.Entitys;
+﻿using BasicFramework.Dommain.Common.Models;
 using System.Threading.Tasks;
 
 namespace BasicFramework.Dommain.Repositorys

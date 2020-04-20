@@ -1,12 +1,13 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using BasicFramework.Dommain.Common.Models;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace BasicFramework.Dommain.Entitys.User
+namespace BasicFramework.Dommain.Entitys.UserRole
 {
     /// <summary>
     /// 用户角色
     /// </summary>
-    [Table("t_User_UserRole")]
+    [Table("t_user_userRole")]
     public  class UserRoleEntity:BaseEntity
     {
         /// <summary>

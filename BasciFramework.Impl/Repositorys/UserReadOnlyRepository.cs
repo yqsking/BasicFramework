@@ -7,7 +7,7 @@ namespace BasicFramework.Impl.Repositorys
     /// <summary>
     /// 用户基础信息只读仓储
     /// </summary>
-    public  class UserReadOnlyRepository: ReadOnlyBaseRepository<UserEntity>, IUserReadOnlyRepository
+    public  class UserReadOnlyRepository: ReadOnlyBaseRepository<UserBasicEntity>, IRootBasicRepository
     {
         public UserReadOnlyRepository (DbContext db):base(db)
         {

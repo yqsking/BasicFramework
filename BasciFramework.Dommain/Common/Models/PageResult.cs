@@ -1,7 +1,7 @@
 ﻿using BasicFramework.Dommain.Entitys;
 using System.Collections.Generic;
 
-namespace BasicFramework.Dommain.Common.Results
+namespace BasicFramework.Dommain.Common.Models
 {
     /// <summary>
     /// 通用分页查询返回结果

@@ -17,15 +17,15 @@ namespace BasicFramework.Impl.DBContext
         /// <summary>
         /// 用户基础信息
         /// </summary>
-        public DbSet<UserEntity> UserEntitys { get; set; }
+        public DbSet<UserBasicEntity> UserEntitys { get; set; }
         /// <summary>
         /// 角色信息
         /// </summary>
-        public DbSet<RoleEntity> RoleEntitys { get; set; }
+        public DbSet<UserRoleEntity> RoleEntitys { get; set; }
         /// <summary>
         /// 权限信息
         /// </summary>
-        public DbSet<RootEntity> RootEntitys { get; set; }
+        public DbSet<RootBasicEntity> RootEntitys { get; set; }
         /// <summary>
         /// 用户角色
         /// </summary>

@@ -8,7 +8,7 @@ namespace BasicFramework.Impl.Repositorys
     /// <summary>
     /// 用户基础信息仓储
     /// </summary>
-    public  class UserRepository:BaseRepository<UserEntity>, IUserRepository
+    public  class UserRepository:BaseRepository<UserBasicEntity>, IUserBasicRepository
     {
         public UserRepository(IUnitOfWork unitOfWork):base(unitOfWork)
         {

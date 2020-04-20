@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Entitys\RoleBasic\Specifications\" />
     <Folder Include="Events\" />
   </ItemGroup>
 

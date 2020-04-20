@@ -14,14 +14,14 @@ namespace BasicFramework.Appliction.Handlers
     public class UserRegisterCommandHandler : IRequestHandler<UserRegisterCommand,ApiResult>
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IUserRepository _userRepository;
+        private readonly IUserBasicRepository _userRepository;
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="unitOfWork"></param>
         /// <param name="userRepository"></param>
-        public UserRegisterCommandHandler(IUnitOfWork unitOfWork, IUserRepository userRepository)
+        public UserRegisterCommandHandler(IUnitOfWork unitOfWork, IUserBasicRepository userRepository)
         {
             _unitOfWork = unitOfWork;
             _userRepository = userRepository;
@@ -40,7 +40,7 @@ namespace BasicFramework.Appliction.Handlers
             {
                 return new ApiResult { IsSuccess=false,Message=$"抱歉,手机号：{request.Phone.Trim()}已被注册！"};
             }
-            var model = new Dommain.Entitys.User.UserEntity(request.UserName.Trim(), request.Phone.Trim(), request.Pwd.Trim(), request.Photo.Trim(), request.QQNumber.Trim(), request.WeCharNumber.Trim(), request.Email.Trim());
+            var model = new Dommain.Entitys.User.UserBasicEntity(request.UserName.Trim(), request.Phone.Trim(), request.Pwd.Trim(), request.Photo.Trim(), request.QQNumber.Trim(), request.WeCharNumber.Trim(), request.Email.Trim());
             await  _userRepository.AddEntityAsync(model);
             await  _unitOfWork.CommitAsync();
             return new ApiResult { IsSuccess=true,Message="注册成功"};
